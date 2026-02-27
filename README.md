@@ -31,6 +31,103 @@ Log output is written to both the console and `deal_processor.log`.
 
 ---
 
+## Expected Output
+
+### Startup
+
+```
+================================================================
+  MT5 Deal Processor - Self-Contained Demo
+  Hentec Trading - C++ Developer Task
+================================================================
+  NOTE: ~10% of requests are INTENTIONALLY invalid to
+  demonstrate error handling (tagged [INTENTIONAL-BAD-REQUEST]).
+  ~3% of MT API calls simulate connection failures for retry
+  testing. All other errors are real validation failures.
+================================================================
+
+[2026-02-27 12:46:53.255] [INFO ] [Thread-0x200f42080] Connecting to MT5 server...
+[2026-02-27 12:46:53.347] [INFO ] [Thread-0x200f42080] Connected to MT5 server successfully
+[2026-02-27 12:46:53.347] [INFO ] [Thread-0x200f42080] Available symbols: 6
+[2026-02-27 12:46:53.347] [INFO ] [Thread-0x200f42080]   EURUSD Bid=1.08447 Ask=1.08462 Volume=[0.01-100.00]
+[2026-02-27 12:46:53.347] [INFO ] [Thread-0x200f42080]   GBPUSD Bid=1.26272 Ask=1.26292 Volume=[0.01-100.00]
+[2026-02-27 12:46:53.347] [INFO ] [Thread-0x200f42080]   XAUUSD Bid=2035.50 Ask=2036.00 Volume=[0.01-50.00]
+[2026-02-27 12:46:53.347] [INFO ] [Thread-0x200f42080]   ...
+[2026-02-27 12:46:53.347] [INFO ] [Thread-0x200f42080] Account #12345 Balance=$100000 FreeMargin=$100000
+```
+
+### Trade Processing (multiple workers handling concurrent requests)
+
+```
+[INFO ] [Thread-0x16dfe3000] Request received: [Client-2-000000] Client-2 BUY EURUSD 0.12 lots SL=0.995 TP=1.005
+[INFO ] [Thread-0x16e0fb000] Request received: [Client-4-000004] Client-4 BUY USDCAD 0.34 lots
+[INFO ] [Thread-0x16ddb3000] Worker-1 EXECUTED: [Client-4-000004] SUCCESS Ticket=#100000 Price=1.35736
+[INFO ] [Thread-0x16de3f000] Worker-2 EXECUTED: [Client-1-000001] SUCCESS Ticket=#100001 Price=1.26319
+[INFO ] [Thread-0x16dd27000] Worker-0 EXECUTED: [Client-2-000000] SUCCESS Ticket=#100002 Price=1.08467
+```
+
+### Error Handling Examples
+
+```
+-- Intentional bad request (invalid volume, tagged in log):
+[INFO ] Request received: [INTENTIONAL-BAD-REQUEST] [Client-4-000005] Client-4 SELL EURUSD 0 lots
+[WARN ] Worker-1 validation failed: [Client-4-000005] INVALID_PARAMS Error: Invalid volume: 0.000000
+
+-- Intentional bad request (unknown symbol):
+[INFO ] Request received: [INTENTIONAL-BAD-REQUEST] [Client-1-000008] Client-1 BUY INVALID 0.1 lots
+[WARN ] Worker-0 validation failed: [Client-1-000008] INVALID_PARAMS Error: Unknown symbol: INVALID
+
+-- Simulated connection failure with retry:
+[WARN ] Worker-3 retrying Client-3-000003 (attempt 2/4, delay=100ms)
+[INFO ] Worker-3 EXECUTED: [Client-3-000003] SUCCESS Ticket=#100005 Price=1.26320
+```
+
+### Execution Summary
+
+```
+  Timing:
+    Client submission phase: 1450ms
+    Total processing time:   2030ms
+    Requests processed:      50
+    Throughput:              24.6 req/sec
+
+================================================================
+                    EXECUTION SUMMARY
+================================================================
+  Total Requests:   50
+  Successful:       46
+  Rejected:         0
+  Errors:           4
+  Duplicates:       0
+  Success Rate:     92.0%
+================================================================
+
+  Per-Client Breakdown:
+  Client      Total   OK      Fail    Dup
+  --------------------------------------------
+  Client-1    10      9       1       0
+  Client-2    10      10      0       0
+  Client-3    10      9       1       0
+  Client-4    10      8       2       0
+  Client-5    10      10      0       0
+
+  Request ID -> MT Ticket Mapping (successful trades):
+  Request ID            Ticket      Price
+  --------------------------------------------------
+  Client-1-000000       #100003     149.86502
+  Client-2-000001       #100000     1.35740
+  Client-3-000003       #100002     1.08466
+  Client-4-000005       #100005     1.35722
+  ...
+================================================================
+```
+
+> **Note**: ~10% of requests are intentionally invalid (tagged `[INTENTIONAL-BAD-REQUEST]` in logs)
+> to demonstrate error handling. ~3% of MT API calls simulate connection timeouts to test
+> the retry mechanism. Actual success rate for valid requests is ~97%.
+
+---
+
 ## Architecture
 
 ```

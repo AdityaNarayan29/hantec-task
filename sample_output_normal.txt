@@ -2,326 +2,350 @@
   MT5 Deal Processor - Self-Contained Demo
   Hentec Trading - C++ Developer Task
 ================================================================
+  NOTE: ~10% of requests are INTENTIONALLY invalid to
+  demonstrate error handling (tagged [INTENTIONAL-BAD-REQUEST]).
+  ~3% of MT API calls simulate connection failures for retry
+  testing. All other errors are real validation failures.
+================================================================
 
-[2026-02-27 11:42:59.828] [INFO ] [Thread-0x200f42080] Connecting to MT5 server...
-[2026-02-27 11:42:59.864] [INFO ] [Thread-0x200f42080] Connected to MT5 server successfully
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080] Available symbols: 6
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080]   XAUUSD Bid=2035.50 Ask=2036.00 Volume=[0.01-50.00]
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080]   USDCAD Bid=1.35756 Ask=1.35774 Volume=[0.01000-100.00000]
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080]   USDJPY Bid=149.850 Ask=149.865 Volume=[0.010-100.000]
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080]   GBPUSD Bid=1.26286 Ask=1.26306 Volume=[0.01000-100.00000]
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080]   AUDUSD Bid=0.65219 Ask=0.65237 Volume=[0.01000-100.00000]
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080]   EURUSD Bid=1.08475 Ask=1.08490 Volume=[0.01000-100.00000]
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080] Account #12345 Balance=$100000.000000 FreeMargin=$100000.000000
+[2026-02-27 12:40:12.746] [INFO ] [Thread-0x200f42080] Connecting to MT5 server...
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080] Connected to MT5 server successfully
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080] Available symbols: 6
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080]   XAUUSD Bid=2035.50 Ask=2036.00 Volume=[0.01-50.00]
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080]   USDCAD Bid=1.35752 Ask=1.35770 Volume=[0.01000-100.00000]
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080]   USDJPY Bid=149.850 Ask=149.865 Volume=[0.010-100.000]
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080]   GBPUSD Bid=1.26362 Ask=1.26382 Volume=[0.01000-100.00000]
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080]   AUDUSD Bid=0.65267 Ask=0.65285 Volume=[0.01000-100.00000]
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080]   EURUSD Bid=1.08454 Ask=1.08469 Volume=[0.01000-100.00000]
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080] Account #12345 Balance=$100000.000000 FreeMargin=$100000.000000
 
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080] === NORMAL SIMULATION: 5 clients, 10 requests each ===
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080] DealProcessor starting with 4 worker threads
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b5d7000] Worker-0 started
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080] DealProcessor started successfully
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b6ef000] Worker-2 started
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x200f42080] Launching 5 client threads simultaneously...
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b77b000] Worker-3 started
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000000] Client-1 BUY EURUSD 0.38 lots
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000001] Client-3 BUY USDJPY 0.38 lots
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000002] Client-4 BUY XAUUSD 0.12 lots
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-3-000001
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000003] Client-2 BUY USDCAD 0.34 lots SL=0.995 TP=1.005
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-4-000002
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-4-000002
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b663000] Worker-1 started
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-2-000003
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-2-000003
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-2-000003] Client-2 BUY USDCAD 0.34 lots SL=0.995 TP=1.005
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-4-000002] Client-4 BUY XAUUSD 0.12 lots
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000004] Client-5 BUY GBPUSD 0.46 lots SL=0.995 TP=1.005
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-1-000000
-[2026-02-27 11:42:59.866] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-1-000000
-[2026-02-27 11:42:59.866] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-1-000000] Client-1 BUY EURUSD 0.38 lots
-[2026-02-27 11:42:59.865] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-3-000001
-[2026-02-27 11:42:59.866] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-3-000001] Client-3 BUY USDJPY 0.38 lots
-[2026-02-27 11:42:59.890] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-1-000000] INVALID_PARAMS Error: Volume 0.380000 not aligned to step 0.010000
-[2026-02-27 11:42:59.890] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-5-000004
-[2026-02-27 11:42:59.890] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-5-000004
-[2026-02-27 11:42:59.890] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-5-000004] Client-5 BUY GBPUSD 0.46 lots SL=0.995 TP=1.005
-[2026-02-27 11:42:59.903] [INFO ] [Thread-0x16b663000] Worker-1 EXECUTED: [Client-2-000003] SUCCESS Ticket=#100000 Price=1.35736
-[2026-02-27 11:42:59.908] [ERROR] [Thread-0x16b77b000] Worker-3 FAILED: [Client-4-000002] INVALID_PARAMS Error: Volume 0.120000 not aligned to step 0.010000
-[2026-02-27 11:42:59.925] [ERROR] [Thread-0x16b6ef000] Worker-2 FAILED: [Client-3-000001] INVALID_PARAMS Error: Volume 0.380000 not aligned to step 0.010000
-[2026-02-27 11:42:59.938] [INFO ] [Thread-0x16b5d7000] Worker-0 EXECUTED: [Client-5-000004] SUCCESS Ticket=#100001 Price=1.26338
-[2026-02-27 11:42:59.945] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000005] Client-5 BUY INVALID 0.1 lots
-[2026-02-27 11:42:59.945] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-5-000005
-[2026-02-27 11:42:59.945] [WARN ] [Thread-0x16b663000] Worker-1 validation failed: [Client-5-000005] INVALID_PARAMS Error: Unknown symbol: INVALID
-[2026-02-27 11:42:59.959] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000006] Client-4 BUY USDJPY 0.47 lots
-[2026-02-27 11:42:59.959] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-4-000006
-[2026-02-27 11:42:59.959] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-4-000006
-[2026-02-27 11:42:59.959] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-4-000006] Client-4 BUY USDJPY 0.47 lots
-[2026-02-27 11:42:59.969] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000007] Client-3 SELL USDJPY 0.04 lots SL=149.745 TP=148.255
-[2026-02-27 11:42:59.969] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-3-000007
-[2026-02-27 11:42:59.969] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-3-000007
-[2026-02-27 11:42:59.969] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-3-000007] Client-3 SELL USDJPY 0.04 lots SL=149.745 TP=148.255
-[2026-02-27 11:42:59.978] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000008] Client-1 SELL EURUSD 0.49 lots SL=1.005 TP=0.995
-[2026-02-27 11:42:59.978] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-1-000008
-[2026-02-27 11:42:59.978] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-1-000008
-[2026-02-27 11:42:59.978] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-1-000008] Client-1 SELL EURUSD 0.49 lots SL=1.005 TP=0.995
-[2026-02-27 11:42:59.986] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000009] Client-2 BUY AUDUSD 0.4 lots
-[2026-02-27 11:42:59.986] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-2-000009
-[2026-02-27 11:42:59.986] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-2-000009
-[2026-02-27 11:42:59.986] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-2-000009] Client-2 BUY AUDUSD 0.4 lots
-[2026-02-27 11:42:59.999] [INFO ] [Thread-0x16b6ef000] Worker-2 EXECUTED: [Client-3-000007] SUCCESS Ticket=#100002 Price=149.84998
-[2026-02-27 11:42:59.999] [INFO ] [Thread-0x16b77b000] Worker-3 EXECUTED: [Client-4-000006] SUCCESS Ticket=#100003 Price=149.86498
-[2026-02-27 11:43:00.021] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000010] Client-4 SELL GBPUSD 0.34 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.021] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-4-000010
-[2026-02-27 11:43:00.021] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-4-000010
-[2026-02-27 11:43:00.021] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-4-000010] Client-4 SELL GBPUSD 0.34 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.029] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-1-000008] INVALID_PARAMS Error: Volume 0.490000 not aligned to step 0.010000
-[2026-02-27 11:43:00.032] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000011] Client-5 SELL AUDUSD 0.48 lots
-[2026-02-27 11:43:00.032] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-5-000011
-[2026-02-27 11:43:00.032] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-5-000011
-[2026-02-27 11:43:00.032] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-5-000011] Client-5 SELL AUDUSD 0.48 lots
-[2026-02-27 11:43:00.050] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000012] Client-3 SELL AUDUSD 0.42 lots
-[2026-02-27 11:43:00.050] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-3-000012
-[2026-02-27 11:43:00.050] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-3-000012
-[2026-02-27 11:43:00.050] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-3-000012] Client-3 SELL AUDUSD 0.42 lots
-[2026-02-27 11:43:00.064] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-3-000012] INVALID_PARAMS Error: Volume 0.420000 not aligned to step 0.010000
-[2026-02-27 11:43:00.082] [INFO ] [Thread-0x16b663000] Worker-1 EXECUTED: [Client-2-000009] SUCCESS Ticket=#100004 Price=0.65248
-[2026-02-27 11:43:00.099] [INFO ] [Thread-0x16b6ef000] Worker-2 EXECUTED: [Client-4-000010] SUCCESS Ticket=#100005 Price=1.26318
-[2026-02-27 11:43:00.108] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000014] Client-1 BUY INVALID 0.1 lots
-[2026-02-27 11:43:00.108] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000013] Client-2 SELL XAUUSD 0.33 lots SL=2045.17 TP=2024.83
-[2026-02-27 11:43:00.108] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-1-000014
-[2026-02-27 11:43:00.108] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-2-000013
-[2026-02-27 11:43:00.108] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-2-000013
-[2026-02-27 11:43:00.108] [WARN ] [Thread-0x16b5d7000] Worker-0 validation failed: [Client-1-000014] INVALID_PARAMS Error: Unknown symbol: INVALID
-[2026-02-27 11:43:00.108] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-2-000013] Client-2 SELL XAUUSD 0.33 lots SL=2045.17 TP=2024.83
-[2026-02-27 11:43:00.135] [ERROR] [Thread-0x16b77b000] Worker-3 FAILED: [Client-5-000011] INVALID_PARAMS Error: Volume 0.480000 not aligned to step 0.010000
-[2026-02-27 11:43:00.163] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000015] Client-4 BUY AUDUSD 0.42 lots SL=0.995 TP=1.005
-[2026-02-27 11:43:00.164] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-4-000015
-[2026-02-27 11:43:00.164] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-4-000015
-[2026-02-27 11:43:00.164] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-4-000015] Client-4 BUY AUDUSD 0.42 lots SL=0.995 TP=1.005
-[2026-02-27 11:43:00.205] [INFO ] [Thread-0x16b663000] Worker-1 EXECUTED: [Client-2-000013] SUCCESS Ticket=#100006 Price=2035.50001
-[2026-02-27 11:43:00.213] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000016] Client-5 SELL AUDUSD 0.03 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.213] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-5-000016
-[2026-02-27 11:43:00.213] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-5-000016
-[2026-02-27 11:43:00.213] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-5-000016] Client-5 SELL AUDUSD 0.03 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.221] [ERROR] [Thread-0x16b6ef000] Worker-2 FAILED: [Client-4-000015] INVALID_PARAMS Error: Volume 0.420000 not aligned to step 0.010000
-[2026-02-27 11:43:00.249] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000017] Client-3 BUY GBPUSD 0.46 lots SL=0.995 TP=1.005
-[2026-02-27 11:43:00.249] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-3-000017
-[2026-02-27 11:43:00.249] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-3-000017
-[2026-02-27 11:43:00.249] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-3-000017] Client-3 BUY GBPUSD 0.46 lots SL=0.995 TP=1.005
-[2026-02-27 11:43:00.267] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000018] Client-2 SELL USDCAD 0.38 lots
-[2026-02-27 11:43:00.267] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-2-000018
-[2026-02-27 11:43:00.267] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-2-000018
-[2026-02-27 11:43:00.267] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-2-000018] Client-2 SELL USDCAD 0.38 lots
-[2026-02-27 11:43:00.279] [INFO ] [Thread-0x16b77b000] Worker-3 EXECUTED: [Client-3-000017] SUCCESS Ticket=#100007 Price=1.26339
-[2026-02-27 11:43:00.282] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000019] Client-1 BUY INVALID 0.1 lots
-[2026-02-27 11:43:00.282] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-1-000019
-[2026-02-27 11:43:00.282] [WARN ] [Thread-0x16b6ef000] Worker-2 validation failed: [Client-1-000019] INVALID_PARAMS Error: Unknown symbol: INVALID
-[2026-02-27 11:43:00.284] [ERROR] [Thread-0x16b663000] Worker-1 FAILED: [Client-2-000018] INVALID_PARAMS Error: Volume 0.380000 not aligned to step 0.010000
-[2026-02-27 11:43:00.293] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-5-000016] INVALID_PARAMS Error: Volume 0.030000 not aligned to step 0.010000
-[2026-02-27 11:43:00.299] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000020] Client-5 SELL USDCAD 0.27 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.299] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-5-000020
-[2026-02-27 11:43:00.299] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-5-000020
-[2026-02-27 11:43:00.299] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-5-000020] Client-5 SELL USDCAD 0.27 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.320] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000021] Client-3 SELL USDCAD 0.43 lots
-[2026-02-27 11:43:00.320] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-3-000021
-[2026-02-27 11:43:00.320] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-3-000021
-[2026-02-27 11:43:00.320] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-3-000021] Client-3 SELL USDCAD 0.43 lots
-[2026-02-27 11:43:00.340] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000022] Client-4 BUY XAUUSD 0.01 lots
-[2026-02-27 11:43:00.340] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-4-000022
-[2026-02-27 11:43:00.340] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-4-000022
-[2026-02-27 11:43:00.340] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-4-000022] Client-4 BUY XAUUSD 0.01 lots
-[2026-02-27 11:43:00.366] [INFO ] [Thread-0x16b663000] Worker-1 EXECUTED: [Client-4-000022] SUCCESS Ticket=#100008 Price=2036.00002
-[2026-02-27 11:43:00.370] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000023] Client-2 SELL EURUSD 0.24 lots
-[2026-02-27 11:43:00.370] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-2-000023
-[2026-02-27 11:43:00.370] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-2-000023
-[2026-02-27 11:43:00.370] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-2-000023] Client-2 SELL EURUSD 0.24 lots
-[2026-02-27 11:43:00.382] [INFO ] [Thread-0x16b77b000] Worker-3 EXECUTED: [Client-5-000020] SUCCESS Ticket=#100009 Price=1.35718
-[2026-02-27 11:43:00.404] [ERROR] [Thread-0x16b6ef000] Worker-2 FAILED: [Client-3-000021] INVALID_PARAMS Error: Volume 0.430000 not aligned to step 0.010000
-[2026-02-27 11:43:00.414] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000024] Client-1 SELL AUDUSD 0.2 lots
-[2026-02-27 11:43:00.414] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-1-000024
-[2026-02-27 11:43:00.414] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-1-000024
-[2026-02-27 11:43:00.414] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-1-000024] Client-1 SELL AUDUSD 0.2 lots
-[2026-02-27 11:43:00.429] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000025] Client-5 BUY XAUUSD 0.33 lots SL=2024.83 TP=2045.17
-[2026-02-27 11:43:00.429] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-5-000025
-[2026-02-27 11:43:00.429] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-5-000025
-[2026-02-27 11:43:00.429] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-5-000025] Client-5 BUY XAUUSD 0.33 lots SL=2024.83 TP=2045.17
-[2026-02-27 11:43:00.446] [INFO ] [Thread-0x16b663000] Worker-1 EXECUTED: [Client-1-000024] SUCCESS Ticket=#100010 Price=0.65228
-[2026-02-27 11:43:00.465] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000026] Client-2 SELL XAUUSD 0.17 lots SL=2045.17 TP=2024.83
-[2026-02-27 11:43:00.465] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-2-000026
-[2026-02-27 11:43:00.465] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-2-000026
-[2026-02-27 11:43:00.465] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-2-000026] Client-2 SELL XAUUSD 0.17 lots SL=2045.17 TP=2024.83
-[2026-02-27 11:43:00.467] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-2-000023] INVALID_PARAMS Error: Volume 0.240000 not aligned to step 0.010000
-[2026-02-27 11:43:00.478] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000027] Client-3 BUY USDCAD 0.46 lots
-[2026-02-27 11:43:00.478] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-3-000027
-[2026-02-27 11:43:00.478] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-3-000027
-[2026-02-27 11:43:00.478] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-3-000027] Client-3 BUY USDCAD 0.46 lots
-[2026-02-27 11:43:00.507] [INFO ] [Thread-0x16b77b000] Worker-3 EXECUTED: [Client-5-000025] SUCCESS Ticket=#100011 Price=2036.00001
-[2026-02-27 11:43:00.512] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000028] Client-1 BUY EURUSD 0.19 lots SL=0.995 TP=1.005
-[2026-02-27 11:43:00.512] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-1-000028
-[2026-02-27 11:43:00.512] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-1-000028
-[2026-02-27 11:43:00.512] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-1-000028] Client-1 BUY EURUSD 0.19 lots SL=0.995 TP=1.005
-[2026-02-27 11:43:00.532] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000029] Client-4 BUY XAUUSD 0.14 lots
-[2026-02-27 11:43:00.532] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-4-000029
-[2026-02-27 11:43:00.532] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-4-000029
-[2026-02-27 11:43:00.532] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-4-000029] Client-4 BUY XAUUSD 0.14 lots
-[2026-02-27 11:43:00.551] [INFO ] [Thread-0x16b663000] Worker-1 EXECUTED: [Client-3-000027] SUCCESS Ticket=#100012 Price=1.35737
-[2026-02-27 11:43:00.559] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000030] Client-2 SELL EURUSD 0.25 lots
-[2026-02-27 11:43:00.559] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000031] Client-3 BUY XAUUSD 0.21 lots
-[2026-02-27 11:43:00.559] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-2-000030
-[2026-02-27 11:43:00.560] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-2-000030
-[2026-02-27 11:43:00.560] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-2-000030] Client-2 SELL EURUSD 0.25 lots
-[2026-02-27 11:43:00.571] [INFO ] [Thread-0x16b6ef000] Worker-2 EXECUTED: [Client-2-000026] SUCCESS Ticket=#100013 Price=2035.50002
-[2026-02-27 11:43:00.571] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-3-000031
-[2026-02-27 11:43:00.571] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-3-000031
-[2026-02-27 11:43:00.571] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-3-000031] Client-3 BUY XAUUSD 0.21 lots
-[2026-02-27 11:43:00.579] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-1-000028] INVALID_PARAMS Error: Volume 0.190000 not aligned to step 0.010000
-[2026-02-27 11:43:00.590] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000032] Client-5 BUY GBPUSD 0.05 lots
-[2026-02-27 11:43:00.590] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-5-000032
-[2026-02-27 11:43:00.590] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-5-000032
-[2026-02-27 11:43:00.590] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-5-000032] Client-5 BUY GBPUSD 0.05 lots
-[2026-02-27 11:43:00.596] [INFO ] [Thread-0x16b77b000] Worker-3 EXECUTED: [Client-4-000029] SUCCESS Ticket=#100014 Price=2035.99999
-[2026-02-27 11:43:00.611] [ERROR] [Thread-0x16b663000] Worker-1 FAILED: [Client-2-000030] INVALID_PARAMS Error: Volume 0.250000 not aligned to step 0.010000
-[2026-02-27 11:43:00.618] [ERROR] [Thread-0x16b6ef000] Worker-2 FAILED: [Client-3-000031] INVALID_PARAMS Error: Volume 0.210000 not aligned to step 0.010000
-[2026-02-27 11:43:00.632] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000033] Client-2 SELL USDCAD 0.14 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.632] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-2-000033
-[2026-02-27 11:43:00.632] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-2-000033
-[2026-02-27 11:43:00.632] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-2-000033] Client-2 SELL USDCAD 0.14 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.649] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000034] Client-4 BUY EURUSD 0.23 lots
-[2026-02-27 11:43:00.649] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-4-000034
-[2026-02-27 11:43:00.649] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-4-000034
-[2026-02-27 11:43:00.649] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-4-000034] Client-4 BUY EURUSD 0.23 lots
-[2026-02-27 11:43:00.684] [INFO ] [Thread-0x16b5d7000] Worker-0 EXECUTED: [Client-5-000032] SUCCESS Ticket=#100015 Price=1.26342
-[2026-02-27 11:43:00.703] [INFO ] [Thread-0x16b663000] Worker-1 EXECUTED: [Client-4-000034] SUCCESS Ticket=#100016 Price=1.08463
-[2026-02-27 11:43:00.716] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000035] Client-1 BUY USDJPY 0.41 lots
-[2026-02-27 11:43:00.716] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-1-000035
-[2026-02-27 11:43:00.716] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-1-000035
-[2026-02-27 11:43:00.716] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-1-000035] Client-1 BUY USDJPY 0.41 lots
-[2026-02-27 11:43:00.734] [INFO ] [Thread-0x16b77b000] Worker-3 EXECUTED: [Client-2-000033] SUCCESS Ticket=#100017 Price=1.35720
-[2026-02-27 11:43:00.738] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000036] Client-3 SELL GBPUSD 0.36 lots
-[2026-02-27 11:43:00.738] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-3-000036
-[2026-02-27 11:43:00.738] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-3-000036
-[2026-02-27 11:43:00.738] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-3-000036] Client-3 SELL GBPUSD 0.36 lots
-[2026-02-27 11:43:00.761] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000037] Client-5 BUY XAUUSD 0.5 lots
-[2026-02-27 11:43:00.761] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-5-000037
-[2026-02-27 11:43:00.761] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-5-000037
-[2026-02-27 11:43:00.761] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-5-000037] Client-5 BUY XAUUSD 0.5 lots
-[2026-02-27 11:43:00.774] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000038] Client-4 BUY USDCAD 0.42 lots
-[2026-02-27 11:43:00.774] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-3-000036] INVALID_PARAMS Error: Volume 0.360000 not aligned to step 0.010000
-[2026-02-27 11:43:00.774] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-4-000038
-[2026-02-27 11:43:00.774] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-4-000038
-[2026-02-27 11:43:00.774] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-4-000038] Client-4 BUY USDCAD 0.42 lots
-[2026-02-27 11:43:00.787] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000039] Client-2 SELL AUDUSD 0.48 lots
-[2026-02-27 11:43:00.787] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-2-000039
-[2026-02-27 11:43:00.787] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-2-000039
-[2026-02-27 11:43:00.787] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-2-000039] Client-2 SELL AUDUSD 0.48 lots
-[2026-02-27 11:43:00.798] [ERROR] [Thread-0x16b663000] Worker-1 FAILED: [Client-5-000037] INVALID_PARAMS Error: Volume 0.500000 not aligned to step 0.010000
-[2026-02-27 11:43:00.818] [WARN ] [Thread-0x16b6ef000] Worker-2 transient failure: MT5 server connection timeout during DealerSend()
-[2026-02-27 11:43:00.818] [WARN ] [Thread-0x16b6ef000] Worker-2 retrying Client-1-000035 (attempt 2/4, delay=100ms)
-[2026-02-27 11:43:00.823] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-2-000039] INVALID_PARAMS Error: Volume 0.480000 not aligned to step 0.010000
-[2026-02-27 11:43:00.876] [ERROR] [Thread-0x16b77b000] Worker-3 FAILED: [Client-4-000038] INVALID_PARAMS Error: Volume 0.420000 not aligned to step 0.010000
-[2026-02-27 11:43:00.876] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000040] Client-1 SELL EURUSD 0.21 lots
-[2026-02-27 11:43:00.876] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-1-000040
-[2026-02-27 11:43:00.876] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-1-000040
-[2026-02-27 11:43:00.876] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-1-000040] Client-1 SELL EURUSD 0.21 lots
-[2026-02-27 11:43:00.889] [ERROR] [Thread-0x16b663000] Worker-1 FAILED: [Client-1-000040] INVALID_PARAMS Error: Volume 0.210000 not aligned to step 0.010000
-[2026-02-27 11:43:00.893] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000041] Client-5 SELL USDCAD 0.18 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.893] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-5-000041
-[2026-02-27 11:43:00.893] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-5-000041
-[2026-02-27 11:43:00.893] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-5-000041] Client-5 SELL USDCAD 0.18 lots SL=1.005 TP=0.995
-[2026-02-27 11:43:00.916] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000042] Client-4 SELL GBPUSD 0.1 lots SL=-1
-[2026-02-27 11:43:00.916] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-4-000042
-[2026-02-27 11:43:00.916] [WARN ] [Thread-0x16b77b000] Worker-3 validation failed: [Client-4-000042] INVALID_PARAMS Error: Invalid stop loss: -1.000000
-[2026-02-27 11:43:00.919] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-1-000035] Client-1 BUY USDJPY 0.41 lots
-[2026-02-27 11:43:00.934] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000043] Client-3 SELL USDJPY 0.12 lots SL=149.745 TP=148.255
-[2026-02-27 11:43:00.934] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-3-000043
-[2026-02-27 11:43:00.934] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-3-000043
-[2026-02-27 11:43:00.934] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-3-000043] Client-3 SELL USDJPY 0.12 lots SL=149.745 TP=148.255
-[2026-02-27 11:43:00.943] [INFO ] [Thread-0x16b893000] Request received: [Client-2-000044] Client-2 BUY USDCAD 0.21 lots
-[2026-02-27 11:43:00.943] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-2-000044
-[2026-02-27 11:43:00.943] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-2-000044
-[2026-02-27 11:43:00.943] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-2-000044] Client-2 BUY USDCAD 0.21 lots
-[2026-02-27 11:43:00.944] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-5-000041] INVALID_PARAMS Error: Volume 0.180000 not aligned to step 0.010000
-[2026-02-27 11:43:00.949] [ERROR] [Thread-0x16b663000] Worker-1 FAILED: [Client-3-000043] INVALID_PARAMS Error: Volume 0.120000 not aligned to step 0.010000
-[2026-02-27 11:43:00.974] [INFO ] [Thread-0x16b6ef000] Worker-2 EXECUTED: [Client-1-000035] SUCCESS Ticket=#100018 Price=149.86501 (retries=1)
-[2026-02-27 11:43:00.997] [INFO ] [Thread-0x16ba37000] Request received: [Client-5-000045] Client-5 BUY GBPUSD 0.25 lots SL=0.995 TP=1.005
-[2026-02-27 11:43:00.997] [INFO ] [Thread-0x16b5d7000] Worker-0 validating: Client-5-000045
-[2026-02-27 11:43:00.997] [INFO ] [Thread-0x16b5d7000] Worker-0 validation passed: Client-5-000045
-[2026-02-27 11:43:00.997] [INFO ] [Thread-0x16b5d7000] Worker-0 executing via MT API (DealerSend): [Client-5-000045] Client-5 BUY GBPUSD 0.25 lots SL=0.995 TP=1.005
-[2026-02-27 11:43:01.006] [INFO ] [Thread-0x16b91f000] Request received: [Client-3-000046] Client-3 BUY XAUUSD 0.49 lots
-[2026-02-27 11:43:01.006] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000047] Client-1 BUY INVALID 0.1 lots
-[2026-02-27 11:43:01.007] [INFO ] [Thread-0x16b663000] Worker-1 validating: Client-3-000046
-[2026-02-27 11:43:01.007] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-1-000047
-[2026-02-27 11:43:01.007] [WARN ] [Thread-0x16b6ef000] Worker-2 validation failed: [Client-1-000047] INVALID_PARAMS Error: Unknown symbol: INVALID
-[2026-02-27 11:43:01.007] [INFO ] [Thread-0x16b663000] Worker-1 validation passed: Client-3-000046
-[2026-02-27 11:43:01.007] [INFO ] [Thread-0x16b663000] Worker-1 executing via MT API (DealerSend): [Client-3-000046] Client-3 BUY XAUUSD 0.49 lots
-[2026-02-27 11:43:01.032] [ERROR] [Thread-0x16b77b000] Worker-3 FAILED: [Client-2-000044] INVALID_PARAMS Error: Volume 0.210000 not aligned to step 0.010000
-[2026-02-27 11:43:01.034] [ERROR] [Thread-0x16b5d7000] Worker-0 FAILED: [Client-5-000045] INVALID_PARAMS Error: Volume 0.250000 not aligned to step 0.010000
-[2026-02-27 11:43:01.050] [INFO ] [Thread-0x16b9ab000] Request received: [Client-4-000048] Client-4 BUY EURUSD 0.33 lots
-[2026-02-27 11:43:01.050] [INFO ] [Thread-0x16b6ef000] Worker-2 validating: Client-4-000048
-[2026-02-27 11:43:01.050] [INFO ] [Thread-0x16b6ef000] Worker-2 validation passed: Client-4-000048
-[2026-02-27 11:43:01.050] [INFO ] [Thread-0x16b6ef000] Worker-2 executing via MT API (DealerSend): [Client-4-000048] Client-4 BUY EURUSD 0.33 lots
-[2026-02-27 11:43:01.065] [ERROR] [Thread-0x16b663000] Worker-1 FAILED: [Client-3-000046] INVALID_PARAMS Error: Volume 0.490000 not aligned to step 0.010000
-[2026-02-27 11:43:01.078] [INFO ] [Thread-0x16b6ef000] Worker-2 EXECUTED: [Client-4-000048] SUCCESS Ticket=#100019 Price=1.08463
-[2026-02-27 11:43:01.148] [INFO ] [Thread-0x16b807000] Request received: [Client-1-000049] Client-1 BUY GBPUSD 0.48 lots
-[2026-02-27 11:43:01.149] [INFO ] [Thread-0x16b77b000] Worker-3 validating: Client-1-000049
-[2026-02-27 11:43:01.149] [INFO ] [Thread-0x16b77b000] Worker-3 validation passed: Client-1-000049
-[2026-02-27 11:43:01.149] [INFO ] [Thread-0x16b77b000] Worker-3 executing via MT API (DealerSend): [Client-1-000049] Client-1 BUY GBPUSD 0.48 lots
-[2026-02-27 11:43:01.248] [ERROR] [Thread-0x16b77b000] Worker-3 FAILED: [Client-1-000049] INVALID_PARAMS Error: Volume 0.480000 not aligned to step 0.010000
-[2026-02-27 11:43:01.267] [INFO ] [Thread-0x200f42080] All clients finished submitting requests
-[2026-02-27 11:43:01.772] [INFO ] [Thread-0x200f42080] DealProcessor shutting down... draining queue (0 pending)
-[2026-02-27 11:43:01.772] [INFO ] [Thread-0x16b663000] Worker-1 stopped
-[2026-02-27 11:43:01.772] [INFO ] [Thread-0x16b77b000] Worker-3 stopped
-[2026-02-27 11:43:01.772] [INFO ] [Thread-0x16b5d7000] Worker-0 stopped
-[2026-02-27 11:43:01.772] [INFO ] [Thread-0x16b6ef000] Worker-2 stopped
-[2026-02-27 11:43:01.773] [INFO ] [Thread-0x200f42080] DealProcessor stopped. All workers joined.
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080] === NORMAL SIMULATION: 5 clients, 10 requests each ===
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080] DealProcessor starting with 4 worker threads
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16d92b000] Worker-0 started
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16d9b7000] Worker-1 started
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16da43000] Worker-2 started
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080] DealProcessor started successfully
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16dacf000] Worker-3 started
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x200f42080] Launching 5 client threads simultaneously...
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000000] Client-5 SELL USDCAD 0.46 lots
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16dc73000] Request received: [Client-3-000002] Client-3 BUY USDCAD 0.25 lots
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16dbe7000] Request received: [Client-2-000004] Client-2 BUY XAUUSD 0.25 lots
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-3-000002
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-5-000000
+[2026-02-27 12:40:12.843] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-5-000000
+[2026-02-27 12:40:12.843] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-5-000000] Client-5 SELL USDCAD 0.46 lots
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-2-000004
+[2026-02-27 12:40:12.843] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-2-000004
+[2026-02-27 12:40:12.843] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-2-000004] Client-2 BUY XAUUSD 0.25 lots
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000003] Client-4 SELL GBPUSD 0.07 lots
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-3-000002
+[2026-02-27 12:40:12.843] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-4-000003
+[2026-02-27 12:40:12.843] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-4-000003
+[2026-02-27 12:40:12.843] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-4-000003] Client-4 SELL GBPUSD 0.07 lots
+[2026-02-27 12:40:12.843] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-3-000002] Client-3 BUY USDCAD 0.25 lots
+[2026-02-27 12:40:12.842] [INFO ] [Thread-0x16db5b000] Request received: [Client-1-000001] Client-1 BUY GBPUSD 0.38 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:12.880] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-3-000002] SUCCESS Ticket=#100000 Price=1.35738
+[2026-02-27 12:40:12.880] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-1-000001
+[2026-02-27 12:40:12.880] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-1-000001
+[2026-02-27 12:40:12.880] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-1-000001] Client-1 BUY GBPUSD 0.38 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:12.898] [WARN ] [Thread-0x16d92b000] Worker-0 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 12:40:12.898] [WARN ] [Thread-0x16d92b000] Worker-0 retrying Client-5-000000 (attempt 2/4, delay=100ms)
+[2026-02-27 12:40:12.904] [INFO ] [Thread-0x16db5b000] Request received: [INTENTIONAL-BAD-REQUEST] [Client-1-000005] Client-1 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 12:40:12.923] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000006] Client-4 SELL USDJPY 0.02 lots
+[2026-02-27 12:40:12.925] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-1-000001] SUCCESS Ticket=#100001 Price=1.26338
+[2026-02-27 12:40:12.925] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-1-000005
+[2026-02-27 12:40:12.925] [WARN ] [Thread-0x16d9b7000] Worker-1 validation failed: [Client-1-000005] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 12:40:12.925] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-4-000006
+[2026-02-27 12:40:12.925] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-4-000006
+[2026-02-27 12:40:12.925] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-4-000006] Client-4 SELL USDJPY 0.02 lots
+[2026-02-27 12:40:12.931] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-4-000003] SUCCESS Ticket=#100002 Price=1.26320
+[2026-02-27 12:40:12.932] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000007] Client-5 SELL XAUUSD 0.41 lots
+[2026-02-27 12:40:12.932] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-5-000007
+[2026-02-27 12:40:12.932] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-5-000007
+[2026-02-27 12:40:12.932] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-5-000007] Client-5 SELL XAUUSD 0.41 lots
+[2026-02-27 12:40:12.942] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-2-000004] SUCCESS Ticket=#100003 Price=2036.00002
+[2026-02-27 12:40:12.952] [INFO ] [Thread-0x16dc73000] Request received: [Client-3-000008] Client-3 BUY AUDUSD 0.27 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:12.952] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-3-000008
+[2026-02-27 12:40:12.952] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-3-000008
+[2026-02-27 12:40:12.952] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-3-000008] Client-3 BUY AUDUSD 0.27 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:12.975] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-4-000006] SUCCESS Ticket=#100004 Price=149.84999
+[2026-02-27 12:40:12.992] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000009] Client-5 SELL EURUSD 0.41 lots
+[2026-02-27 12:40:12.992] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-5-000009
+[2026-02-27 12:40:12.992] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-5-000009
+[2026-02-27 12:40:12.992] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-5-000009] Client-5 SELL EURUSD 0.41 lots
+[2026-02-27 12:40:12.998] [INFO ] [Thread-0x16dbe7000] Request received: [Client-2-000010] Client-2 BUY AUDUSD 0.02 lots
+[2026-02-27 12:40:13.003] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-5-000000] Client-5 SELL USDCAD 0.46 lots
+[2026-02-27 12:40:13.006] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-5-000007] SUCCESS Ticket=#100005 Price=2035.50000
+[2026-02-27 12:40:13.006] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-2-000010
+[2026-02-27 12:40:13.006] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-2-000010
+[2026-02-27 12:40:13.006] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-2-000010] Client-2 BUY AUDUSD 0.02 lots
+[2026-02-27 12:40:13.008] [INFO ] [Thread-0x16dc73000] Request received: [Client-3-000011] Client-3 BUY GBPUSD 0.44 lots
+[2026-02-27 12:40:13.012] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000012] Client-4 BUY EURUSD 0.31 lots
+[2026-02-27 12:40:13.018] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-3-000008] SUCCESS Ticket=#100006 Price=0.65246
+[2026-02-27 12:40:13.018] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-3-000011
+[2026-02-27 12:40:13.018] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-3-000011
+[2026-02-27 12:40:13.018] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-3-000011] Client-3 BUY GBPUSD 0.44 lots
+[2026-02-27 12:40:13.024] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-5-000009] SUCCESS Ticket=#100007 Price=1.08448
+[2026-02-27 12:40:13.024] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-4-000012
+[2026-02-27 12:40:13.024] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-4-000012
+[2026-02-27 12:40:13.024] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-4-000012] Client-4 BUY EURUSD 0.31 lots
+[2026-02-27 12:40:13.033] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-3-000011] SUCCESS Ticket=#100008 Price=1.26341
+[2026-02-27 12:40:13.049] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-5-000000] SUCCESS Ticket=#100009 Price=1.35719 (retries=1)
+[2026-02-27 12:40:13.075] [INFO ] [Thread-0x16db5b000] Request received: [Client-1-000013] Client-1 SELL GBPUSD 0.24 lots
+[2026-02-27 12:40:13.075] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-1-000013
+[2026-02-27 12:40:13.075] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-1-000013
+[2026-02-27 12:40:13.075] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-1-000013] Client-1 SELL GBPUSD 0.24 lots
+[2026-02-27 12:40:13.081] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000014] Client-4 SELL EURUSD 0.07 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.081] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-4-000014
+[2026-02-27 12:40:13.081] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-4-000014
+[2026-02-27 12:40:13.081] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-4-000014] Client-4 SELL EURUSD 0.07 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.085] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-4-000012] SUCCESS Ticket=#100010 Price=1.08463
+[2026-02-27 12:40:13.091] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-2-000010] SUCCESS Ticket=#100011 Price=0.65249
+[2026-02-27 12:40:13.092] [INFO ] [Thread-0x16dd8b000] Request received: [INTENTIONAL-BAD-REQUEST] [Client-5-000015] Client-5 BUY INVALID 0.1 lots
+[2026-02-27 12:40:13.092] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-5-000015
+[2026-02-27 12:40:13.092] [WARN ] [Thread-0x16d9b7000] Worker-1 validation failed: [Client-5-000015] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 12:40:13.118] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-4-000014] SUCCESS Ticket=#100012 Price=1.08450
+[2026-02-27 12:40:13.118] [INFO ] [Thread-0x16dc73000] Request received: [Client-3-000016] Client-3 SELL AUDUSD 0.16 lots
+[2026-02-27 12:40:13.118] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-3-000016
+[2026-02-27 12:40:13.118] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-3-000016
+[2026-02-27 12:40:13.118] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-3-000016] Client-3 SELL AUDUSD 0.16 lots
+[2026-02-27 12:40:13.137] [INFO ] [Thread-0x16dbe7000] Request received: [Client-2-000017] Client-2 BUY EURUSD 0.33 lots
+[2026-02-27 12:40:13.137] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-2-000017
+[2026-02-27 12:40:13.137] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-2-000017
+[2026-02-27 12:40:13.137] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-2-000017] Client-2 BUY EURUSD 0.33 lots
+[2026-02-27 12:40:13.180] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-1-000013] SUCCESS Ticket=#100013 Price=1.26318
+[2026-02-27 12:40:13.183] [INFO ] [Thread-0x16dc73000] Request received: [Client-3-000018] Client-3 BUY EURUSD 0.49 lots
+[2026-02-27 12:40:13.183] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-3-000018
+[2026-02-27 12:40:13.183] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-3-000018
+[2026-02-27 12:40:13.183] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-3-000018] Client-3 BUY EURUSD 0.49 lots
+[2026-02-27 12:40:13.210] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000019] Client-5 SELL USDJPY 0.02 lots
+[2026-02-27 12:40:13.210] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-5-000019
+[2026-02-27 12:40:13.210] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-5-000019
+[2026-02-27 12:40:13.210] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-5-000019] Client-5 SELL USDJPY 0.02 lots
+[2026-02-27 12:40:13.211] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-3-000016] SUCCESS Ticket=#100014 Price=0.65229
+[2026-02-27 12:40:13.216] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000020] Client-4 BUY EURUSD 0.39 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.216] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-4-000020
+[2026-02-27 12:40:13.216] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-4-000020
+[2026-02-27 12:40:13.216] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-4-000020] Client-4 BUY EURUSD 0.39 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.220] [INFO ] [Thread-0x16db5b000] Request received: [Client-1-000021] Client-1 BUY USDJPY 0.27 lots
+[2026-02-27 12:40:13.225] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-2-000017] SUCCESS Ticket=#100015 Price=1.08467
+[2026-02-27 12:40:13.225] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-1-000021
+[2026-02-27 12:40:13.225] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-1-000021
+[2026-02-27 12:40:13.225] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-1-000021] Client-1 BUY USDJPY 0.27 lots
+[2026-02-27 12:40:13.236] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-5-000019] SUCCESS Ticket=#100016 Price=149.85000
+[2026-02-27 12:40:13.254] [INFO ] [Thread-0x16dbe7000] Request received: [Client-2-000022] Client-2 BUY EURUSD 0.23 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.254] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-2-000022
+[2026-02-27 12:40:13.254] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-2-000022
+[2026-02-27 12:40:13.254] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-2-000022] Client-2 BUY EURUSD 0.23 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.267] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-3-000018] SUCCESS Ticket=#100017 Price=1.08465
+[2026-02-27 12:40:13.302] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-1-000021] SUCCESS Ticket=#100018 Price=149.86499
+[2026-02-27 12:40:13.308] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-4-000020] SUCCESS Ticket=#100019 Price=1.08463
+[2026-02-27 12:40:13.319] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000023] Client-4 SELL XAUUSD 0.14 lots
+[2026-02-27 12:40:13.319] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-4-000023
+[2026-02-27 12:40:13.319] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-4-000023
+[2026-02-27 12:40:13.319] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-4-000023] Client-4 SELL XAUUSD 0.14 lots
+[2026-02-27 12:40:13.321] [INFO ] [Thread-0x16dc73000] Request received: [INTENTIONAL-BAD-REQUEST] [Client-3-000024] Client-3 SELL EURUSD 0 lots
+[2026-02-27 12:40:13.321] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-3-000024
+[2026-02-27 12:40:13.321] [WARN ] [Thread-0x16d9b7000] Worker-1 validation failed: [Client-3-000024] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 12:40:13.348] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-2-000022] SUCCESS Ticket=#100020 Price=1.08467
+[2026-02-27 12:40:13.358] [INFO ] [Thread-0x16db5b000] Request received: [INTENTIONAL-BAD-REQUEST] [Client-1-000025] Client-1 BUY INVALID 0.1 lots
+[2026-02-27 12:40:13.358] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000026] Client-5 SELL AUDUSD 0.13 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.358] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-1-000025
+[2026-02-27 12:40:13.358] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-5-000026
+[2026-02-27 12:40:13.358] [WARN ] [Thread-0x16dacf000] Worker-3 validation failed: [Client-1-000025] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 12:40:13.358] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-5-000026
+[2026-02-27 12:40:13.358] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-5-000026] Client-5 SELL AUDUSD 0.13 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.361] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-4-000023] SUCCESS Ticket=#100021 Price=2035.49998
+[2026-02-27 12:40:13.392] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000027] Client-4 SELL AUDUSD 0.34 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.392] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-4-000027
+[2026-02-27 12:40:13.392] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-4-000027
+[2026-02-27 12:40:13.392] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-4-000027] Client-4 SELL AUDUSD 0.34 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.415] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-4-000027] SUCCESS Ticket=#100022 Price=0.65231
+[2026-02-27 12:40:13.442] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-5-000026] SUCCESS Ticket=#100023 Price=0.65231
+[2026-02-27 12:40:13.454] [INFO ] [Thread-0x16dbe7000] Request received: [Client-2-000028] Client-2 SELL USDJPY 0.21 lots
+[2026-02-27 12:40:13.454] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-2-000028
+[2026-02-27 12:40:13.454] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-2-000028
+[2026-02-27 12:40:13.454] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-2-000028] Client-2 SELL USDJPY 0.21 lots
+[2026-02-27 12:40:13.458] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000029] Client-4 SELL XAUUSD 0.14 lots
+[2026-02-27 12:40:13.458] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-4-000029
+[2026-02-27 12:40:13.458] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-4-000029
+[2026-02-27 12:40:13.458] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-4-000029] Client-4 SELL XAUUSD 0.14 lots
+[2026-02-27 12:40:13.470] [INFO ] [Thread-0x16dc73000] Request received: [INTENTIONAL-BAD-REQUEST] [Client-3-000030] Client-3 SELL EURUSD 0 lots
+[2026-02-27 12:40:13.470] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-3-000030
+[2026-02-27 12:40:13.471] [WARN ] [Thread-0x16da43000] Worker-2 validation failed: [Client-3-000030] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 12:40:13.486] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000031] Client-5 SELL GBPUSD 0.42 lots
+[2026-02-27 12:40:13.486] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-5-000031
+[2026-02-27 12:40:13.486] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-5-000031
+[2026-02-27 12:40:13.486] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-5-000031] Client-5 SELL GBPUSD 0.42 lots
+[2026-02-27 12:40:13.501] [INFO ] [Thread-0x16db5b000] Request received: [Client-1-000032] Client-1 SELL AUDUSD 0.4 lots
+[2026-02-27 12:40:13.501] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-1-000032
+[2026-02-27 12:40:13.501] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-1-000032
+[2026-02-27 12:40:13.501] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-1-000032] Client-1 SELL AUDUSD 0.4 lots
+[2026-02-27 12:40:13.503] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-5-000031] SUCCESS Ticket=#100024 Price=1.26321
+[2026-02-27 12:40:13.521] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-2-000028] SUCCESS Ticket=#100025 Price=149.85000
+[2026-02-27 12:40:13.528] [INFO ] [Thread-0x16dbe7000] Request received: [Client-2-000033] Client-2 BUY USDCAD 0.34 lots
+[2026-02-27 12:40:13.528] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-2-000033
+[2026-02-27 12:40:13.528] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-2-000033
+[2026-02-27 12:40:13.528] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-2-000033] Client-2 BUY USDCAD 0.34 lots
+[2026-02-27 12:40:13.538] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-1-000032] SUCCESS Ticket=#100026 Price=0.65229
+[2026-02-27 12:40:13.543] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-2-000033] SUCCESS Ticket=#100027 Price=1.35740
+[2026-02-27 12:40:13.558] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-4-000029] SUCCESS Ticket=#100028 Price=2035.50002
+[2026-02-27 12:40:13.571] [INFO ] [Thread-0x16dcff000] Request received: [INTENTIONAL-BAD-REQUEST] [Client-4-000034] Client-4 SELL EURUSD 0 lots
+[2026-02-27 12:40:13.571] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-4-000034
+[2026-02-27 12:40:13.571] [WARN ] [Thread-0x16dacf000] Worker-3 validation failed: [Client-4-000034] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 12:40:13.576] [INFO ] [Thread-0x16db5b000] Request received: [Client-1-000035] Client-1 SELL USDCAD 0.3 lots
+[2026-02-27 12:40:13.576] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-1-000035
+[2026-02-27 12:40:13.576] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-1-000035
+[2026-02-27 12:40:13.577] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-1-000035] Client-1 SELL USDCAD 0.3 lots
+[2026-02-27 12:40:13.627] [INFO ] [Thread-0x16dbe7000] Request received: [INTENTIONAL-BAD-REQUEST] [Client-2-000036] Client-2 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 12:40:13.627] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-2-000036
+[2026-02-27 12:40:13.627] [WARN ] [Thread-0x16d9b7000] Worker-1 validation failed: [Client-2-000036] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 12:40:13.628] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-1-000035] SUCCESS Ticket=#100029 Price=1.35722
+[2026-02-27 12:40:13.640] [INFO ] [Thread-0x16dc73000] Request received: [Client-3-000037] Client-3 BUY USDCAD 0.02 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.640] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-3-000037
+[2026-02-27 12:40:13.640] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-3-000037
+[2026-02-27 12:40:13.640] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-3-000037] Client-3 BUY USDCAD 0.02 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.672] [INFO ] [Thread-0x16db5b000] Request received: [Client-1-000038] Client-1 BUY AUDUSD 0.25 lots
+[2026-02-27 12:40:13.672] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-1-000038
+[2026-02-27 12:40:13.672] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-3-000037] SUCCESS Ticket=#100030 Price=1.35740
+[2026-02-27 12:40:13.672] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-1-000038
+[2026-02-27 12:40:13.672] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-1-000038] Client-1 BUY AUDUSD 0.25 lots
+[2026-02-27 12:40:13.685] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000039] Client-5 BUY EURUSD 0.06 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.685] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-5-000039
+[2026-02-27 12:40:13.685] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-5-000039
+[2026-02-27 12:40:13.686] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-5-000039] Client-5 BUY EURUSD 0.06 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.713] [INFO ] [Thread-0x16dc73000] Request received: [Client-3-000040] Client-3 BUY USDCAD 0.49 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.713] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-3-000040
+[2026-02-27 12:40:13.713] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-3-000040
+[2026-02-27 12:40:13.713] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-3-000040] Client-3 BUY USDCAD 0.49 lots SL=0.995 TP=1.005
+[2026-02-27 12:40:13.719] [INFO ] [Thread-0x16dcff000] Request received: [Client-4-000041] Client-4 BUY USDJPY 0.05 lots SL=148.255 TP=149.745
+[2026-02-27 12:40:13.719] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-4-000041
+[2026-02-27 12:40:13.719] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-4-000041
+[2026-02-27 12:40:13.719] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-4-000041] Client-4 BUY USDJPY 0.05 lots SL=148.255 TP=149.745
+[2026-02-27 12:40:13.742] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-1-000038] SUCCESS Ticket=#100031 Price=0.65248
+[2026-02-27 12:40:13.758] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000042] Client-5 BUY XAUUSD 0.35 lots
+[2026-02-27 12:40:13.758] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-5-000042
+[2026-02-27 12:40:13.758] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-5-000042
+[2026-02-27 12:40:13.758] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-5-000042] Client-5 BUY XAUUSD 0.35 lots
+[2026-02-27 12:40:13.771] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-5-000039] SUCCESS Ticket=#100032 Price=1.08463
+[2026-02-27 12:40:13.784] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-4-000041] SUCCESS Ticket=#100033 Price=149.86501
+[2026-02-27 12:40:13.789] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-5-000042] SUCCESS Ticket=#100034 Price=2036.00002
+[2026-02-27 12:40:13.814] [INFO ] [Thread-0x16dbe7000] Request received: [Client-2-000043] Client-2 SELL EURUSD 0.25 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.814] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-2-000043
+[2026-02-27 12:40:13.814] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-2-000043
+[2026-02-27 12:40:13.814] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-2-000043] Client-2 SELL EURUSD 0.25 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.818] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-3-000040] SUCCESS Ticket=#100035 Price=1.35739
+[2026-02-27 12:40:13.850] [INFO ] [Thread-0x16db5b000] Request received: [Client-1-000044] Client-1 SELL GBPUSD 0.29 lots
+[2026-02-27 12:40:13.850] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-1-000044
+[2026-02-27 12:40:13.850] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-1-000044
+[2026-02-27 12:40:13.850] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-1-000044] Client-1 SELL GBPUSD 0.29 lots
+[2026-02-27 12:40:13.886] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-2-000043] SUCCESS Ticket=#100036 Price=1.08450
+[2026-02-27 12:40:13.904] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-1-000044] SUCCESS Ticket=#100037 Price=1.26320
+[2026-02-27 12:40:13.906] [INFO ] [Thread-0x16db5b000] Request received: [Client-1-000045] Client-1 BUY EURUSD 0.13 lots
+[2026-02-27 12:40:13.906] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-1-000045
+[2026-02-27 12:40:13.906] [INFO ] [Thread-0x16dacf000] Worker-3 validation passed: Client-1-000045
+[2026-02-27 12:40:13.906] [INFO ] [Thread-0x16dacf000] Worker-3 executing via MT API (DealerSend): [Client-1-000045] Client-1 BUY EURUSD 0.13 lots
+[2026-02-27 12:40:13.916] [INFO ] [Thread-0x16dc73000] Request received: [Client-3-000046] Client-3 SELL USDCAD 0.24 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.916] [INFO ] [Thread-0x16da43000] Worker-2 validating: Client-3-000046
+[2026-02-27 12:40:13.916] [INFO ] [Thread-0x16da43000] Worker-2 validation passed: Client-3-000046
+[2026-02-27 12:40:13.917] [INFO ] [Thread-0x16da43000] Worker-2 executing via MT API (DealerSend): [Client-3-000046] Client-3 SELL USDCAD 0.24 lots SL=1.005 TP=0.995
+[2026-02-27 12:40:13.945] [INFO ] [Thread-0x16dbe7000] Request received: [Client-2-000047] Client-2 SELL AUDUSD 0.41 lots
+[2026-02-27 12:40:13.946] [INFO ] [Thread-0x16d9b7000] Worker-1 validating: Client-2-000047
+[2026-02-27 12:40:13.946] [INFO ] [Thread-0x16d9b7000] Worker-1 validation passed: Client-2-000047
+[2026-02-27 12:40:13.946] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-2-000047] Client-2 SELL AUDUSD 0.41 lots
+[2026-02-27 12:40:13.949] [INFO ] [Thread-0x16dd8b000] Request received: [Client-5-000048] Client-5 SELL USDCAD 0.01 lots
+[2026-02-27 12:40:13.949] [INFO ] [Thread-0x16d92b000] Worker-0 validating: Client-5-000048
+[2026-02-27 12:40:13.949] [INFO ] [Thread-0x16d92b000] Worker-0 validation passed: Client-5-000048
+[2026-02-27 12:40:13.949] [INFO ] [Thread-0x16d92b000] Worker-0 executing via MT API (DealerSend): [Client-5-000048] Client-5 SELL USDCAD 0.01 lots
+[2026-02-27 12:40:13.977] [WARN ] [Thread-0x16d9b7000] Worker-1 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 12:40:13.977] [WARN ] [Thread-0x16d9b7000] Worker-1 retrying Client-2-000047 (attempt 2/4, delay=100ms)
+[2026-02-27 12:40:13.979] [INFO ] [Thread-0x16dacf000] Worker-3 EXECUTED: [Client-1-000045] SUCCESS Ticket=#100038 Price=1.08466
+[2026-02-27 12:40:13.999] [INFO ] [Thread-0x16da43000] Worker-2 EXECUTED: [Client-3-000046] SUCCESS Ticket=#100039 Price=1.35719
+[2026-02-27 12:40:14.021] [INFO ] [Thread-0x16d92b000] Worker-0 EXECUTED: [Client-5-000048] SUCCESS Ticket=#100040 Price=1.35720
+[2026-02-27 12:40:14.080] [INFO ] [Thread-0x16d9b7000] Worker-1 executing via MT API (DealerSend): [Client-2-000047] Client-2 SELL AUDUSD 0.41 lots
+[2026-02-27 12:40:14.123] [INFO ] [Thread-0x16dbe7000] Request received: [INTENTIONAL-BAD-REQUEST] [Client-2-000049] Client-2 BUY EURUSD 999 lots
+[2026-02-27 12:40:14.123] [INFO ] [Thread-0x16dacf000] Worker-3 validating: Client-2-000049
+[2026-02-27 12:40:14.123] [WARN ] [Thread-0x16dacf000] Worker-3 validation failed: [Client-2-000049] INVALID_PARAMS Error: Volume 999.000000 outside range [0.010000, 100.000000]
+[2026-02-27 12:40:14.157] [INFO ] [Thread-0x16d9b7000] Worker-1 EXECUTED: [Client-2-000047] SUCCESS Ticket=#100041 Price=0.65231 (retries=1)
+[2026-02-27 12:40:14.208] [INFO ] [Thread-0x200f42080] All clients finished submitting requests
+[2026-02-27 12:40:14.708] [INFO ] [Thread-0x200f42080] DealProcessor shutting down... draining queue (0 pending)
+[2026-02-27 12:40:14.708] [INFO ] [Thread-0x16da43000] Worker-2 stopped
+[2026-02-27 12:40:14.708] [INFO ] [Thread-0x16dacf000] Worker-3 stopped
+[2026-02-27 12:40:14.708] [INFO ] [Thread-0x16d92b000] Worker-0 stopped
+[2026-02-27 12:40:14.708] [INFO ] [Thread-0x16d9b7000] Worker-1 stopped
+[2026-02-27 12:40:14.708] [INFO ] [Thread-0x200f42080] DealProcessor stopped. All workers joined.
 
   Timing:
-    Client submission phase: 1402ms
-    Total processing time:   1907ms
+    Client submission phase: 1365ms
+    Total processing time:   1866ms
     Requests processed:      50
-    Throughput:              26.2 req/sec
+    Throughput:              26.8 req/sec
 
 ================================================================
                     EXECUTION SUMMARY
 ================================================================
   Total Requests:   50
-  Successful:       20
+  Successful:       42
   Rejected:         0
-  Errors:           30
+  Errors:           8
   Duplicates:       0
-  Success Rate:     40.0%
+  Success Rate:     84.0%
 ================================================================
 
   Per-Client Breakdown:
   Client      Total   OK      Fail    Dup     
   --------------------------------------------
-  Client-5    10      4       6       0       
-  Client-3    10      3       7       0       
-  Client-4    10      6       4       0       
-  Client-2    10      5       5       0       
-  Client-1    10      2       8       0       
+  Client-5    10      9       1       0       
+  Client-2    10      8       2       0       
+  Client-1    10      8       2       0       
+  Client-4    10      9       1       0       
+  Client-3    10      8       2       0       
 
   Request ID -> MT Ticket Mapping (successful trades):
   Request ID            Ticket      Price
   --------------------------------------------------
-  Client-4-000048       #100019     1.08463
-  Client-4-000029       #100014     2035.99999
-  Client-4-000006       #100003     149.86498
-  Client-2-000033       #100017     1.35720
-  Client-4-000034       #100016     1.08463
-  Client-5-000032       #100015     1.26342
-  Client-5-000025       #100011     2036.00001
-  Client-2-000013       #100006     2035.50001
-  Client-1-000024       #100010     0.65228
-  Client-4-000022       #100008     2036.00002
-  Client-5-000020       #100009     1.35718
-  Client-2-000009       #100004     0.65248
-  Client-4-000010       #100005     1.26318
-  Client-5-000004       #100001     1.26338
-  Client-3-000017       #100007     1.26339
-  Client-2-000026       #100013     2035.50002
-  Client-3-000007       #100002     149.84998
-  Client-3-000027       #100012     1.35737
-  Client-2-000003       #100000     1.35736
-  Client-1-000035       #100018     149.86501
+  Client-2-000047       #100041     0.65231
+  Client-4-000023       #100021     2035.49998
+  Client-1-000045       #100038     1.08466
+  Client-1-000044       #100037     1.26320
+  Client-2-000043       #100036     1.08450
+  Client-3-000040       #100035     1.35739
+  Client-5-000039       #100032     1.08463
+  Client-1-000038       #100031     0.65248
+  Client-1-000021       #100018     149.86499
+  Client-4-000029       #100028     2035.50002
+  Client-2-000017       #100015     1.08467
+  Client-3-000037       #100030     1.35740
+  Client-2-000033       #100027     1.35740
+  Client-4-000041       #100033     149.86501
+  Client-2-000028       #100025     149.85000
+  Client-1-000013       #100013     1.26318
+  Client-5-000031       #100024     1.26321
+  Client-3-000016       #100014     0.65229
+  Client-3-000046       #100039     1.35719
+  Client-5-000026       #100023     0.65231
+  Client-5-000042       #100034     2036.00002
+  Client-3-000018       #100017     1.08465
+  Client-1-000035       #100029     1.35722
+  Client-2-000022       #100020     1.08467
+  Client-1-000032       #100026     0.65229
+  Client-5-000009       #100007     1.08448
+  Client-1-000001       #100001     1.26338
+  Client-4-000020       #100019     1.08463
+  Client-4-000014       #100012     1.08450
+  Client-5-000007       #100005     2035.50000
+  Client-4-000012       #100010     1.08463
+  Client-5-000019       #100016     149.85000
+  Client-4-000027       #100022     0.65231
+  Client-5-000048       #100040     1.35720
+  Client-3-000008       #100006     0.65246
+  Client-5-000000       #100009     1.35719
+  Client-2-000004       #100003     2036.00002
+  Client-3-000011       #100008     1.26341
+  Client-4-000006       #100004     149.84999
+  Client-2-000010       #100011     0.65249
+  Client-4-000003       #100002     1.26320
+  Client-3-000002       #100000     1.35738
 ================================================================
 
-[2026-02-27 11:43:01.773] [INFO ] [Thread-0x200f42080] Disconnected from MT5 server. Demo complete.
+[2026-02-27 12:40:14.708] [INFO ] [Thread-0x200f42080] Disconnected from MT5 server. Demo complete.

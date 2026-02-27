@@ -1,0 +1,1125 @@
+================================================================
+  MT5 Deal Processor - Self-Contained Demo
+  Hentec Trading - C++ Developer Task
+================================================================
+
+[2026-02-27 11:43:01.778] [INFO ] [Thread-0x200f42080] Connecting to MT5 server...
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080] Connected to MT5 server successfully
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080] Available symbols: 6
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080]   XAUUSD Bid=2035.50 Ask=2036.00 Volume=[0.01-50.00]
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080]   USDCAD Bid=1.35687 Ask=1.35705 Volume=[0.01000-100.00000]
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080]   USDJPY Bid=149.850 Ask=149.865 Volume=[0.010-100.000]
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080]   GBPUSD Bid=1.26328 Ask=1.26348 Volume=[0.01000-100.00000]
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080]   AUDUSD Bid=0.65244 Ask=0.65262 Volume=[0.01000-100.00000]
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080]   EURUSD Bid=1.08421 Ask=1.08436 Volume=[0.01000-100.00000]
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080] Account #12345 Balance=$100000.000000 FreeMargin=$100000.000000
+
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080] === BURST SIMULATION: 10 clients, 20 requests each, minimal delay ===
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x200f42080] DealProcessor starting with 8 worker threads
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x16bdf3000] Worker-1 started
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x16be7f000] Worker-2 started
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x16bf97000] Worker-4 started
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x16bd67000] Worker-0 started
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x16bf0b000] Worker-3 started
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c0af000] Worker-6 started
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x200f42080] DealProcessor started successfully
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c13b000] Worker-7 started
+[2026-02-27 11:43:01.832] [INFO ] [Thread-0x16c023000] Worker-5 started
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x200f42080] Launching 10 burst client threads...
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000000] Burst-1 BUY XAUUSD 0.37 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000002] Burst-2 BUY INVALID 0.1 lots
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000005] Burst-6 SELL USDJPY 0.36 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000006] Burst-7 SELL GBPUSD 0.4 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000003] Burst-4 SELL USDJPY 0.48 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-7-000006
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-4-000003
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-4-000003
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-4-000003] Burst-4 SELL USDJPY 0.48 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000009] Burst-10 BUY USDCAD 0.38 lots
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000004] Burst-5 BUY EURUSD 0.32 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000008] Burst-9 SELL XAUUSD 0.17 lots
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-6-000005
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-9-000008
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-9-000008
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-9-000008] Burst-9 SELL XAUUSD 0.17 lots
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-2-000002
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000001] Burst-3 BUY USDJPY 0.29 lots
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-10-000009
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-5-000004
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-5-000004
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-6-000005
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-7-000006
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000007] Burst-8 SELL GBPUSD 0.18 lots
+[2026-02-27 11:43:01.833] [WARN ] [Thread-0x16be7f000] Worker-2 validation failed: [Burst-2-000002] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-3-000001
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-3-000001
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-1-000000
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-6-000005] Burst-6 SELL USDJPY 0.36 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-7-000006] Burst-7 SELL GBPUSD 0.4 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-10-000009
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-10-000009] Burst-10 BUY USDCAD 0.38 lots
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-3-000001] Burst-3 BUY USDJPY 0.29 lots
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-1-000000
+[2026-02-27 11:43:01.833] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-5-000004] Burst-5 BUY EURUSD 0.32 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.834] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-1-000000] Burst-1 BUY XAUUSD 0.37 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.834] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000010] Burst-1 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 11:43:01.834] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000011] Burst-10 SELL USDJPY 0.03 lots
+[2026-02-27 11:43:01.836] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000012] Burst-9 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 11:43:01.836] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000013] Burst-3 SELL EURUSD 0.09 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.837] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000014] Burst-6 SELL GBPUSD 0.08 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.838] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000015] Burst-6 BUY USDJPY 0.06 lots
+[2026-02-27 11:43:01.838] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000016] Burst-9 SELL GBPUSD 0.12 lots
+[2026-02-27 11:43:01.839] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000017] Burst-10 BUY USDJPY 0.1 lots
+[2026-02-27 11:43:01.840] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000018] Burst-4 BUY INVALID 0.1 lots
+[2026-02-27 11:43:01.843] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000019] Burst-7 BUY GBPUSD 0.15 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.843] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000020] Burst-10 SELL AUDUSD 0.35 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.843] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000021] Burst-5 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 11:43:01.843] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000022] Burst-8 BUY EURUSD 999 lots
+[2026-02-27 11:43:01.845] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000023] Burst-2 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.846] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000024] Burst-5 BUY XAUUSD 0.21 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.846] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000025] Burst-3 BUY EURUSD 999 lots
+[2026-02-27 11:43:01.847] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000026] Burst-1 SELL EURUSD 0.24 lots
+[2026-02-27 11:43:01.847] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000027] Burst-4 BUY AUDUSD 0.3 lots
+[2026-02-27 11:43:01.848] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000028] Burst-6 BUY USDJPY 0.06 lots
+[2026-02-27 11:43:01.849] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000029] Burst-6 BUY USDCAD 0.28 lots
+[2026-02-27 11:43:01.849] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000030] Burst-9 SELL AUDUSD 0.17 lots
+[2026-02-27 11:43:01.849] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000031] Burst-5 BUY GBPUSD 0.37 lots
+[2026-02-27 11:43:01.849] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000032] Burst-8 BUY INVALID 0.1 lots
+[2026-02-27 11:43:01.850] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000033] Burst-9 BUY EURUSD 0.49 lots
+[2026-02-27 11:43:01.850] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000034] Burst-7 BUY USDCAD 0.13 lots
+[2026-02-27 11:43:01.850] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-4-000003] INVALID_PARAMS Error: Volume 0.480000 not aligned to step 0.010000
+[2026-02-27 11:43:01.850] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-8-000007
+[2026-02-27 11:43:01.850] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-8-000007
+[2026-02-27 11:43:01.850] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-8-000007] Burst-8 SELL GBPUSD 0.18 lots
+[2026-02-27 11:43:01.852] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000035] Burst-1 BUY AUDUSD 0.41 lots
+[2026-02-27 11:43:01.852] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000036] Burst-10 SELL AUDUSD 0.14 lots
+[2026-02-27 11:43:01.853] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000037] Burst-9 BUY USDCAD 0.32 lots
+[2026-02-27 11:43:01.853] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000038] Burst-1 SELL XAUUSD 0.06 lots
+[2026-02-27 11:43:01.853] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000039] Burst-7 BUY XAUUSD 0.06 lots
+[2026-02-27 11:43:01.855] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000040] Burst-6 SELL USDJPY 0.17 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:01.855] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-3-000001] INVALID_PARAMS Error: Volume 0.290000 not aligned to step 0.010000
+[2026-02-27 11:43:01.855] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-1-000010
+[2026-02-27 11:43:01.855] [WARN ] [Thread-0x16be7f000] Worker-2 validation failed: [Burst-1-000010] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 11:43:01.855] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-10-000011
+[2026-02-27 11:43:01.855] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-10-000011
+[2026-02-27 11:43:01.855] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000041] Burst-1 BUY AUDUSD 0.16 lots
+[2026-02-27 11:43:01.855] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-10-000011] Burst-10 SELL USDJPY 0.03 lots
+[2026-02-27 11:43:01.855] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000042] Burst-4 BUY AUDUSD 0.21 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.855] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000043] Burst-5 BUY EURUSD 0.49 lots
+[2026-02-27 11:43:01.856] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000044] Burst-3 BUY INVALID 0.1 lots
+[2026-02-27 11:43:01.857] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000045] Burst-5 BUY XAUUSD 0.19 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.857] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000046] Burst-2 SELL USDCAD 0.11 lots
+[2026-02-27 11:43:01.858] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000047] Burst-7 BUY AUDUSD 0.44 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.861] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000048] Burst-8 SELL XAUUSD 0.35 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:01.861] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000049] Burst-10 SELL USDCAD 0.04 lots
+[2026-02-27 11:43:01.862] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000050] Burst-6 SELL USDJPY 0.39 lots
+[2026-02-27 11:43:01.862] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000051] Burst-3 SELL USDJPY 0.49 lots
+[2026-02-27 11:43:01.862] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000052] Burst-1 BUY XAUUSD 0.04 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.863] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000053] Burst-7 BUY EURUSD 999 lots
+[2026-02-27 11:43:01.863] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000054] Burst-9 SELL USDJPY 0.18 lots
+[2026-02-27 11:43:01.863] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-7-000006] SUCCESS Ticket=#100000 Price=1.26318
+[2026-02-27 11:43:01.863] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-9-000012
+[2026-02-27 11:43:01.863] [WARN ] [Thread-0x16bd67000] Worker-0 validation failed: [Burst-9-000012] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 11:43:01.863] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-3-000013
+[2026-02-27 11:43:01.863] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-3-000013
+[2026-02-27 11:43:01.863] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-3-000013] Burst-3 SELL EURUSD 0.09 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.864] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000055] Burst-9 SELL USDCAD 0.5 lots
+[2026-02-27 11:43:01.864] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000056] Burst-5 SELL AUDUSD 0.26 lots
+[2026-02-27 11:43:01.865] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000057] Burst-6 SELL GBPUSD 0.28 lots
+[2026-02-27 11:43:01.865] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000058] Burst-3 SELL XAUUSD 0.25 lots
+[2026-02-27 11:43:01.867] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000059] Burst-1 BUY USDCAD 0.08 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.868] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000060] Burst-4 SELL XAUUSD 0.07 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:01.868] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000061] Burst-5 BUY GBPUSD 0.42 lots
+[2026-02-27 11:43:01.869] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000062] Burst-6 SELL USDJPY 0.45 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:01.870] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000063] Burst-2 BUY USDJPY 0.37 lots
+[2026-02-27 11:43:01.870] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000065] Burst-8 SELL XAUUSD 0.39 lots
+[2026-02-27 11:43:01.870] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000064] Burst-10 SELL USDJPY 0.16 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:01.870] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000066] Burst-3 BUY AUDUSD 0.4 lots
+[2026-02-27 11:43:01.871] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000067] Burst-9 BUY USDCAD 0.33 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.871] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000068] Burst-10 SELL GBPUSD 0.13 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.872] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000069] Burst-10 BUY EURUSD 999 lots
+[2026-02-27 11:43:01.873] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000070] Burst-7 BUY EURUSD 0.24 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.877] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000072] Burst-7 BUY XAUUSD 0.1 lots
+[2026-02-27 11:43:01.877] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000074] Burst-1 BUY AUDUSD 0.36 lots
+[2026-02-27 11:43:01.877] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000071] Burst-4 SELL EURUSD 0.04 lots
+[2026-02-27 11:43:01.877] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000075] Burst-3 SELL GBPUSD 0.5 lots
+[2026-02-27 11:43:01.877] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000073] Burst-5 BUY GBPUSD 0.05 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.878] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000076] Burst-9 SELL USDJPY 0.42 lots
+[2026-02-27 11:43:01.878] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000077] Burst-6 BUY GBPUSD 0.43 lots
+[2026-02-27 11:43:01.878] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000078] Burst-2 SELL XAUUSD 0.47 lots
+[2026-02-27 11:43:01.880] [ERROR] [Thread-0x16bf97000] Worker-4 FAILED: [Burst-6-000005] INVALID_PARAMS Error: Volume 0.360000 not aligned to step 0.010000
+[2026-02-27 11:43:01.880] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-6-000014
+[2026-02-27 11:43:01.880] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-6-000014
+[2026-02-27 11:43:01.880] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-6-000014] Burst-6 SELL GBPUSD 0.08 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.881] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000079] Burst-4 BUY AUDUSD 0.2 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.881] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000080] Burst-6 BUY GBPUSD 0.23 lots
+[2026-02-27 11:43:01.881] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000081] Burst-8 BUY USDJPY 0.28 lots
+[2026-02-27 11:43:01.881] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000082] Burst-10 SELL XAUUSD 0.01 lots
+[2026-02-27 11:43:01.883] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000083] Burst-7 SELL AUDUSD 0.4 lots
+[2026-02-27 11:43:01.883] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000084] Burst-9 SELL EURUSD 0.04 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.883] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000086] Burst-3 BUY EURUSD 0.39 lots
+[2026-02-27 11:43:01.883] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000085] Burst-2 BUY GBPUSD 0.5 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.883] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000087] Burst-4 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.884] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000088] Burst-3 BUY INVALID 0.1 lots
+[2026-02-27 11:43:01.886] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000089] Burst-3 BUY USDCAD 0.15 lots
+[2026-02-27 11:43:01.886] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000090] Burst-10 SELL EURUSD 0.13 lots
+[2026-02-27 11:43:01.887] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000091] Burst-7 BUY USDCAD 0.07 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.887] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000092] Burst-9 BUY USDJPY 0.09 lots SL=148.255 TP=149.745
+[2026-02-27 11:43:01.887] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000093] Burst-4 SELL AUDUSD 0.5 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.887] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000094] Burst-1 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.887] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000095] Burst-5 SELL GBPUSD 0.43 lots
+[2026-02-27 11:43:01.887] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000096] Burst-8 SELL USDCAD 0.21 lots
+[2026-02-27 11:43:01.891] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000097] Burst-5 SELL AUDUSD 0.16 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.892] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000100] Burst-6 BUY USDJPY 0.07 lots
+[2026-02-27 11:43:01.892] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000098] Burst-2 SELL XAUUSD 0.41 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:01.892] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000099] Burst-9 SELL XAUUSD 0.22 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:01.893] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000103] Burst-3 BUY INVALID 0.1 lots
+[2026-02-27 11:43:01.893] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000102] Burst-10 BUY AUDUSD 0.35 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.893] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000101] Burst-8 BUY USDCAD 0.27 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.896] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000104] Burst-9 SELL USDCAD 0.25 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.897] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000105] Burst-1 BUY USDCAD 0.15 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.897] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000108] Burst-8 BUY USDCAD 0.12 lots
+[2026-02-27 11:43:01.897] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000107] Burst-7 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 11:43:01.897] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000106] Burst-5 BUY GBPUSD 0.03 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.898] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000109] Burst-4 SELL XAUUSD 0.03 lots
+[2026-02-27 11:43:01.900] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000110] Burst-5 SELL AUDUSD 0.41 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.900] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000111] Burst-3 SELL XAUUSD 0.08 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:01.901] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000112] Burst-1 SELL EURUSD 0.3 lots
+[2026-02-27 11:43:01.902] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000113] Burst-2 BUY XAUUSD 0.46 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.903] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000114] Burst-6 BUY USDJPY 0.39 lots
+[2026-02-27 11:43:01.903] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000115] Burst-10 SELL USDCAD 0.33 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.904] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000116] Burst-2 BUY USDJPY 0.13 lots
+[2026-02-27 11:43:01.904] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000117] Burst-4 BUY AUDUSD 0.28 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.906] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000118] Burst-7 BUY AUDUSD 0.45 lots
+[2026-02-27 11:43:01.906] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000119] Burst-9 BUY EURUSD 999 lots
+[2026-02-27 11:43:01.906] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000120] Burst-10 BUY USDJPY 0.33 lots
+[2026-02-27 11:43:01.908] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000121] Burst-7 BUY USDJPY 0.19 lots
+[2026-02-27 11:43:01.908] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-1-000000] INVALID_PARAMS Error: Volume 0.370000 not aligned to step 0.010000
+[2026-02-27 11:43:01.908] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-6-000015
+[2026-02-27 11:43:01.908] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000122] Burst-8 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.908] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-10-000011] INVALID_PARAMS Error: Volume 0.030000 not aligned to step 0.010000
+[2026-02-27 11:43:01.908] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-9-000016
+[2026-02-27 11:43:01.908] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-9-000016
+[2026-02-27 11:43:01.909] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-9-000016] Burst-9 SELL GBPUSD 0.12 lots
+[2026-02-27 11:43:01.908] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-6-000015
+[2026-02-27 11:43:01.909] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-6-000015] Burst-6 BUY USDJPY 0.06 lots
+[2026-02-27 11:43:01.908] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000123] Burst-5 SELL AUDUSD 0.27 lots
+[2026-02-27 11:43:01.911] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000124] Burst-4 BUY GBPUSD 0.1 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.911] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000125] Burst-3 BUY GBPUSD 0.31 lots
+[2026-02-27 11:43:01.912] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000126] Burst-1 BUY XAUUSD 0.05 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.913] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000127] Burst-1 SELL GBPUSD 0.21 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.914] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000128] Burst-2 BUY USDCAD 0.16 lots
+[2026-02-27 11:43:01.914] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000129] Burst-9 SELL GBPUSD 0.5 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.915] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000130] Burst-8 BUY EURUSD 999 lots
+[2026-02-27 11:43:01.915] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000131] Burst-4 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.915] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000132] Burst-6 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.916] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000133] Burst-10 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 11:43:01.916] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000134] Burst-9 BUY INVALID 0.1 lots
+[2026-02-27 11:43:01.917] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000135] Burst-10 SELL USDJPY 0.07 lots
+[2026-02-27 11:43:01.917] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000136] Burst-1 SELL GBPUSD 0.04 lots
+[2026-02-27 11:43:01.917] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000137] Burst-9 BUY AUDUSD 0.03 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.917] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000138] Burst-7 BUY XAUUSD 0.49 lots
+[2026-02-27 11:43:01.917] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000139] Burst-5 SELL EURUSD 0.02 lots
+[2026-02-27 11:43:01.921] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000140] Burst-10 BUY GBPUSD 0.5 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.921] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000141] Burst-1 BUY EURUSD 0.45 lots
+[2026-02-27 11:43:01.922] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000142] Burst-6 SELL USDJPY 0.36 lots
+[2026-02-27 11:43:01.922] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-10-000009] INVALID_PARAMS Error: Volume 0.380000 not aligned to step 0.010000
+[2026-02-27 11:43:01.923] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-10-000017
+[2026-02-27 11:43:01.923] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-10-000017
+[2026-02-27 11:43:01.923] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-10-000017] Burst-10 BUY USDJPY 0.1 lots
+[2026-02-27 11:43:01.924] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000143] Burst-8 BUY EURUSD 0.36 lots
+[2026-02-27 11:43:01.924] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000144] Burst-2 SELL AUDUSD 0.33 lots
+[2026-02-27 11:43:01.924] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000145] Burst-3 SELL AUDUSD 0.19 lots
+[2026-02-27 11:43:01.924] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000146] Burst-6 BUY XAUUSD 0.37 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.924] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000147] Burst-9 SELL AUDUSD 0.08 lots
+[2026-02-27 11:43:01.924] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000148] Burst-4 BUY EURUSD 999 lots
+[2026-02-27 11:43:01.925] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000149] Burst-2 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000151] Burst-8 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000153] Burst-7 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000150] Burst-10 BUY USDCAD 0.33 lots
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000154] Burst-5 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 11:43:01.927] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-3-000013] INVALID_PARAMS Error: Volume 0.090000 not aligned to step 0.010000
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-4-000018
+[2026-02-27 11:43:01.927] [WARN ] [Thread-0x16bd67000] Worker-0 validation failed: [Burst-4-000018] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-7-000019
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-7-000019
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000152] Burst-3 SELL GBPUSD 0.23 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.927] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-7-000019] Burst-7 BUY GBPUSD 0.15 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.929] [INFO ] [Thread-0x16c627000] Request received: [Burst-9-000155] Burst-9 BUY XAUUSD 0.13 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000156] Burst-1 SELL AUDUSD 0.22 lots
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000157] Burst-3 SELL USDJPY 0.42 lots
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-5-000004] SUCCESS Ticket=#100001 Price=1.08466
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-10-000020
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-10-000020
+[2026-02-27 11:43:01.931] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-8-000007] INVALID_PARAMS Error: Volume 0.180000 not aligned to step 0.010000
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-10-000020] Burst-10 SELL AUDUSD 0.35 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-5-000021
+[2026-02-27 11:43:01.931] [WARN ] [Thread-0x16bf0b000] Worker-3 validation failed: [Burst-5-000021] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-8-000022
+[2026-02-27 11:43:01.931] [WARN ] [Thread-0x16bf0b000] Worker-3 validation failed: [Burst-8-000022] INVALID_PARAMS Error: Volume 999.000000 outside range [0.010000, 100.000000]
+[2026-02-27 11:43:01.931] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-2-000023
+[2026-02-27 11:43:01.932] [WARN ] [Thread-0x16bf0b000] Worker-3 validation failed: [Burst-2-000023] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-5-000024
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-5-000024
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-5-000024] Burst-5 BUY XAUUSD 0.21 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16c023000] Worker-5 EXECUTED: [Burst-9-000008] SUCCESS Ticket=#100002 Price=2035.49998
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000158] Burst-7 BUY USDCAD 0.32 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-3-000025
+[2026-02-27 11:43:01.932] [WARN ] [Thread-0x16c023000] Worker-5 validation failed: [Burst-3-000025] INVALID_PARAMS Error: Volume 999.000000 outside range [0.010000, 100.000000]
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-1-000026
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-1-000026
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-1-000026] Burst-1 SELL EURUSD 0.24 lots
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000159] Burst-3 SELL USDJPY 0.3 lots
+[2026-02-27 11:43:01.932] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000160] Burst-2 SELL AUDUSD 0.48 lots
+[2026-02-27 11:43:01.933] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000161] Burst-4 SELL USDCAD 0.19 lots
+[2026-02-27 11:43:01.935] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000162] Burst-4 BUY AUDUSD 0.19 lots
+[2026-02-27 11:43:01.935] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000163] Burst-1 SELL USDCAD 0.46 lots
+[2026-02-27 11:43:01.935] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000164] Burst-5 BUY XAUUSD 0.25 lots
+[2026-02-27 11:43:01.937] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000165] Burst-6 BUY EURUSD 0.25 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.939] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000167] Burst-10 SELL EURUSD 0.17 lots
+[2026-02-27 11:43:01.939] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000166] Burst-8 SELL GBPUSD 0.24 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.941] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000168] Burst-7 BUY USDJPY 0.3 lots
+[2026-02-27 11:43:01.941] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000169] Burst-4 BUY USDJPY 0.29 lots SL=148.255 TP=149.745
+[2026-02-27 11:43:01.942] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-6-000014] SUCCESS Ticket=#100003 Price=1.26322
+[2026-02-27 11:43:01.943] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-4-000027
+[2026-02-27 11:43:01.943] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-4-000027
+[2026-02-27 11:43:01.943] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-4-000027] Burst-4 BUY AUDUSD 0.3 lots
+[2026-02-27 11:43:01.944] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000170] Burst-5 SELL XAUUSD 0.19 lots
+[2026-02-27 11:43:01.944] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000171] Burst-2 BUY GBPUSD 0.23 lots
+[2026-02-27 11:43:01.945] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000172] Burst-7 SELL USDJPY 0.22 lots
+[2026-02-27 11:43:01.945] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000173] Burst-3 SELL AUDUSD 0.21 lots
+[2026-02-27 11:43:01.947] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000174] Burst-6 SELL USDJPY 0.12 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:01.947] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000175] Burst-2 BUY AUDUSD 0.3 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.947] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000176] Burst-1 BUY USDJPY 0.35 lots SL=148.255 TP=149.745
+[2026-02-27 11:43:01.949] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000177] Burst-4 SELL GBPUSD 0.03 lots
+[2026-02-27 11:43:01.949] [INFO ] [Thread-0x16c1c7000] Request received: [Burst-1-000178] Burst-1 SELL EURUSD 0.31 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.949] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-7-000019] INVALID_PARAMS Error: Volume 0.150000 not aligned to step 0.010000
+[2026-02-27 11:43:01.949] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-6-000028
+[2026-02-27 11:43:01.949] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-6-000028
+[2026-02-27 11:43:01.949] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-6-000028] Burst-6 BUY USDJPY 0.06 lots
+[2026-02-27 11:43:01.949] [INFO ] [Thread-0x16c6b3000] Request received: [Burst-10-000179] Burst-10 BUY AUDUSD 0.46 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.951] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000180] Burst-2 SELL USDCAD 0.15 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.951] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000181] Burst-8 BUY AUDUSD 0.14 lots
+[2026-02-27 11:43:01.951] [INFO ] [Thread-0x16c2df000] Request received: [Burst-3-000182] Burst-3 BUY USDCAD 0.06 lots
+[2026-02-27 11:43:01.952] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000183] Burst-5 SELL GBPUSD 0.1 lots SL=-1
+[2026-02-27 11:43:01.953] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000184] Burst-7 SELL XAUUSD 0.28 lots
+[2026-02-27 11:43:01.954] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000185] Burst-6 BUY AUDUSD 0.29 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.957] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000186] Burst-4 SELL AUDUSD 0.32 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.957] [INFO ] [Thread-0x16c483000] Request received: [Burst-6-000187] Burst-6 BUY AUDUSD 0.06 lots
+[2026-02-27 11:43:01.957] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000188] Burst-2 BUY USDCAD 0.11 lots
+[2026-02-27 11:43:01.961] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000189] Burst-8 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.961] [INFO ] [Thread-0x16c3f7000] Request received: [Burst-5-000190] Burst-5 BUY XAUUSD 0.43 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:01.964] [INFO ] [Thread-0x16c50f000] Request received: [Burst-7-000191] Burst-7 BUY USDCAD 0.4 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.964] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000192] Burst-2 SELL EURUSD 0 lots
+[2026-02-27 11:43:01.965] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000193] Burst-8 BUY XAUUSD 0.01 lots
+[2026-02-27 11:43:01.966] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000194] Burst-2 BUY USDJPY 0.13 lots
+[2026-02-27 11:43:01.966] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000196] Burst-8 SELL GBPUSD 0.34 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:01.966] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-9-000016] INVALID_PARAMS Error: Volume 0.120000 not aligned to step 0.010000
+[2026-02-27 11:43:01.966] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-6-000029
+[2026-02-27 11:43:01.966] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-6-000029
+[2026-02-27 11:43:01.966] [INFO ] [Thread-0x16c36b000] Request received: [Burst-4-000195] Burst-4 SELL AUDUSD 0.48 lots
+[2026-02-27 11:43:01.966] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-6-000029] Burst-6 BUY USDCAD 0.28 lots
+[2026-02-27 11:43:01.968] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000197] Burst-8 SELL GBPUSD 0.3 lots
+[2026-02-27 11:43:01.975] [INFO ] [Thread-0x16c253000] Request received: [Burst-2-000198] Burst-2 BUY AUDUSD 0.09 lots
+[2026-02-27 11:43:01.975] [INFO ] [Thread-0x16c59b000] Request received: [Burst-8-000199] Burst-8 BUY EURUSD 0.45 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:01.980] [INFO ] [Thread-0x200f42080] All burst clients finished submitting
+[2026-02-27 11:43:01.986] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-10-000020] SUCCESS Ticket=#100004 Price=0.65229
+[2026-02-27 11:43:01.986] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-9-000030
+[2026-02-27 11:43:01.987] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-9-000030
+[2026-02-27 11:43:01.987] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-9-000030] Burst-9 SELL AUDUSD 0.17 lots
+[2026-02-27 11:43:02.007] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-5-000024] INVALID_PARAMS Error: Volume 0.210000 not aligned to step 0.010000
+[2026-02-27 11:43:02.007] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-5-000031
+[2026-02-27 11:43:02.007] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-5-000031
+[2026-02-27 11:43:02.007] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-5-000031] Burst-5 BUY GBPUSD 0.37 lots
+[2026-02-27 11:43:02.008] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-6-000015] INVALID_PARAMS Error: Volume 0.060000 not aligned to step 0.010000
+[2026-02-27 11:43:02.008] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-8-000032
+[2026-02-27 11:43:02.008] [WARN ] [Thread-0x16bdf3000] Worker-1 validation failed: [Burst-8-000032] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 11:43:02.008] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-9-000033
+[2026-02-27 11:43:02.008] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-9-000033
+[2026-02-27 11:43:02.008] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-9-000033] Burst-9 BUY EURUSD 0.49 lots
+[2026-02-27 11:43:02.019] [INFO ] [Thread-0x16c0af000] Worker-6 EXECUTED: [Burst-10-000017] SUCCESS Ticket=#100005 Price=149.86499
+[2026-02-27 11:43:02.019] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-7-000034
+[2026-02-27 11:43:02.019] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-7-000034
+[2026-02-27 11:43:02.019] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-7-000034] Burst-7 BUY USDCAD 0.13 lots
+[2026-02-27 11:43:02.024] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-9-000030] SUCCESS Ticket=#100006 Price=0.65229
+[2026-02-27 11:43:02.024] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-1-000026] INVALID_PARAMS Error: Volume 0.240000 not aligned to step 0.010000
+[2026-02-27 11:43:02.024] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-1-000035
+[2026-02-27 11:43:02.024] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-1-000035
+[2026-02-27 11:43:02.024] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-1-000035] Burst-1 BUY AUDUSD 0.41 lots
+[2026-02-27 11:43:02.024] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-10-000036
+[2026-02-27 11:43:02.024] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-10-000036
+[2026-02-27 11:43:02.024] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-10-000036] Burst-10 SELL AUDUSD 0.14 lots
+[2026-02-27 11:43:02.025] [ERROR] [Thread-0x16bf97000] Worker-4 FAILED: [Burst-4-000027] INVALID_PARAMS Error: Volume 0.300000 not aligned to step 0.010000
+[2026-02-27 11:43:02.025] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-9-000037
+[2026-02-27 11:43:02.025] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-9-000037
+[2026-02-27 11:43:02.025] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-9-000037] Burst-9 BUY USDCAD 0.32 lots
+[2026-02-27 11:43:02.042] [INFO ] [Thread-0x16be7f000] Worker-2 EXECUTED: [Burst-6-000029] SUCCESS Ticket=#100007 Price=1.35737
+[2026-02-27 11:43:02.042] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-1-000038
+[2026-02-27 11:43:02.042] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-1-000038
+[2026-02-27 11:43:02.042] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-1-000038] Burst-1 SELL XAUUSD 0.06 lots
+[2026-02-27 11:43:02.049] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-6-000028] INVALID_PARAMS Error: Volume 0.060000 not aligned to step 0.010000
+[2026-02-27 11:43:02.049] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-7-000039
+[2026-02-27 11:43:02.049] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-7-000039
+[2026-02-27 11:43:02.049] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-7-000039] Burst-7 BUY XAUUSD 0.06 lots
+[2026-02-27 11:43:02.074] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-9-000033] INVALID_PARAMS Error: Volume 0.490000 not aligned to step 0.010000
+[2026-02-27 11:43:02.074] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-6-000040
+[2026-02-27 11:43:02.074] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-6-000040
+[2026-02-27 11:43:02.074] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-6-000040] Burst-6 SELL USDJPY 0.17 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:02.076] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-9-000037] SUCCESS Ticket=#100008 Price=1.35736
+[2026-02-27 11:43:02.076] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-1-000041
+[2026-02-27 11:43:02.076] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-1-000041
+[2026-02-27 11:43:02.076] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-1-000041] Burst-1 BUY AUDUSD 0.16 lots
+[2026-02-27 11:43:02.084] [INFO ] [Thread-0x16c023000] Worker-5 EXECUTED: [Burst-10-000036] SUCCESS Ticket=#100009 Price=0.65228
+[2026-02-27 11:43:02.084] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-4-000042
+[2026-02-27 11:43:02.084] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-4-000042
+[2026-02-27 11:43:02.084] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-4-000042] Burst-4 BUY AUDUSD 0.21 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.093] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-5-000031] INVALID_PARAMS Error: Volume 0.370000 not aligned to step 0.010000
+[2026-02-27 11:43:02.093] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-5-000043
+[2026-02-27 11:43:02.093] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-5-000043
+[2026-02-27 11:43:02.093] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-5-000043] Burst-5 BUY EURUSD 0.49 lots
+[2026-02-27 11:43:02.098] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-1-000038] INVALID_PARAMS Error: Volume 0.060000 not aligned to step 0.010000
+[2026-02-27 11:43:02.098] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-3-000044
+[2026-02-27 11:43:02.098] [WARN ] [Thread-0x16be7f000] Worker-2 validation failed: [Burst-3-000044] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 11:43:02.098] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-5-000045
+[2026-02-27 11:43:02.098] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-5-000045
+[2026-02-27 11:43:02.098] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-5-000045] Burst-5 BUY XAUUSD 0.19 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:02.106] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-1-000035] SUCCESS Ticket=#100010 Price=0.65246
+[2026-02-27 11:43:02.106] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-2-000046
+[2026-02-27 11:43:02.106] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-2-000046
+[2026-02-27 11:43:02.106] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-2-000046] Burst-2 SELL USDCAD 0.11 lots
+[2026-02-27 11:43:02.114] [INFO ] [Thread-0x16c0af000] Worker-6 EXECUTED: [Burst-7-000034] SUCCESS Ticket=#100011 Price=1.35740
+[2026-02-27 11:43:02.114] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-7-000047
+[2026-02-27 11:43:02.114] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-7-000047
+[2026-02-27 11:43:02.114] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-7-000047] Burst-7 BUY AUDUSD 0.44 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.121] [ERROR] [Thread-0x16c13b000] Worker-7 FAILED: [Burst-2-000046] INVALID_PARAMS Error: Volume 0.110000 not aligned to step 0.010000
+[2026-02-27 11:43:02.121] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-8-000048
+[2026-02-27 11:43:02.121] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-8-000048
+[2026-02-27 11:43:02.121] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-8-000048] Burst-8 SELL XAUUSD 0.35 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:02.123] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-5-000043] INVALID_PARAMS Error: Volume 0.490000 not aligned to step 0.010000
+[2026-02-27 11:43:02.123] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-10-000049
+[2026-02-27 11:43:02.123] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-10-000049
+[2026-02-27 11:43:02.123] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-10-000049] Burst-10 SELL USDCAD 0.04 lots
+[2026-02-27 11:43:02.138] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-7-000039] INVALID_PARAMS Error: Volume 0.060000 not aligned to step 0.010000
+[2026-02-27 11:43:02.138] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-6-000050
+[2026-02-27 11:43:02.139] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-6-000050
+[2026-02-27 11:43:02.139] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-6-000050] Burst-6 SELL USDJPY 0.39 lots
+[2026-02-27 11:43:02.147] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-1-000041] SUCCESS Ticket=#100012 Price=0.65248
+[2026-02-27 11:43:02.147] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-3-000051
+[2026-02-27 11:43:02.147] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-3-000051
+[2026-02-27 11:43:02.147] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-3-000051] Burst-3 SELL USDJPY 0.49 lots
+[2026-02-27 11:43:02.159] [WARN ] [Thread-0x16bdf3000] Worker-1 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.160] [WARN ] [Thread-0x16bdf3000] Worker-1 retrying Burst-6-000040 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:02.160] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-7-000047] INVALID_PARAMS Error: Volume 0.440000 not aligned to step 0.010000
+[2026-02-27 11:43:02.160] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-1-000052
+[2026-02-27 11:43:02.160] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-1-000052
+[2026-02-27 11:43:02.160] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-1-000052] Burst-1 BUY XAUUSD 0.04 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:02.172] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-5-000045] INVALID_PARAMS Error: Volume 0.190000 not aligned to step 0.010000
+[2026-02-27 11:43:02.172] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-7-000053
+[2026-02-27 11:43:02.172] [WARN ] [Thread-0x16be7f000] Worker-2 validation failed: [Burst-7-000053] INVALID_PARAMS Error: Volume 999.000000 outside range [0.010000, 100.000000]
+[2026-02-27 11:43:02.172] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-9-000054
+[2026-02-27 11:43:02.172] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-9-000054
+[2026-02-27 11:43:02.172] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-9-000054] Burst-9 SELL USDJPY 0.18 lots
+[2026-02-27 11:43:02.188] [WARN ] [Thread-0x16c13b000] Worker-7 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.188] [WARN ] [Thread-0x16c13b000] Worker-7 retrying Burst-8-000048 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:02.188] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-4-000042] INVALID_PARAMS Error: Volume 0.210000 not aligned to step 0.010000
+[2026-02-27 11:43:02.188] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-9-000055
+[2026-02-27 11:43:02.188] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-9-000055
+[2026-02-27 11:43:02.188] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-9-000055] Burst-9 SELL USDCAD 0.5 lots
+[2026-02-27 11:43:02.196] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-6-000050] SUCCESS Ticket=#100013 Price=149.84998
+[2026-02-27 11:43:02.196] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-5-000056
+[2026-02-27 11:43:02.196] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-5-000056
+[2026-02-27 11:43:02.196] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-5-000056] Burst-5 SELL AUDUSD 0.26 lots
+[2026-02-27 11:43:02.212] [ERROR] [Thread-0x16bf97000] Worker-4 FAILED: [Burst-3-000051] INVALID_PARAMS Error: Volume 0.490000 not aligned to step 0.010000
+[2026-02-27 11:43:02.212] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-6-000057
+[2026-02-27 11:43:02.212] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-6-000057
+[2026-02-27 11:43:02.212] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-6-000057] Burst-6 SELL GBPUSD 0.28 lots
+[2026-02-27 11:43:02.215] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-6-000040] Burst-6 SELL USDJPY 0.17 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:02.223] [INFO ] [Thread-0x16bf0b000] Worker-3 EXECUTED: [Burst-10-000049] SUCCESS Ticket=#100014 Price=1.35721
+[2026-02-27 11:43:02.223] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-3-000058
+[2026-02-27 11:43:02.223] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-3-000058
+[2026-02-27 11:43:02.223] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-3-000058] Burst-3 SELL XAUUSD 0.25 lots
+[2026-02-27 11:43:02.232] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-5-000056] SUCCESS Ticket=#100015 Price=0.65230
+[2026-02-27 11:43:02.232] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-1-000059
+[2026-02-27 11:43:02.232] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-1-000059
+[2026-02-27 11:43:02.232] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-1-000059] Burst-1 BUY USDCAD 0.08 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.242] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-9-000054] INVALID_PARAMS Error: Volume 0.180000 not aligned to step 0.010000
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16c0af000] Worker-6 EXECUTED: [Burst-1-000052] SUCCESS Ticket=#100016 Price=2036.00001
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-5-000061
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-5-000061
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-5-000061] Burst-5 BUY GBPUSD 0.42 lots
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-4-000060
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-4-000060
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-6-000057] SUCCESS Ticket=#100017 Price=1.26322
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-6-000062
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-6-000062
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-4-000060] Burst-4 SELL XAUUSD 0.07 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:02.242] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-6-000062] Burst-6 SELL USDJPY 0.45 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:02.243] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-8-000048] Burst-8 SELL XAUUSD 0.35 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:02.254] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-5-000061] INVALID_PARAMS Error: Volume 0.420000 not aligned to step 0.010000
+[2026-02-27 11:43:02.254] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-2-000063
+[2026-02-27 11:43:02.254] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-2-000063
+[2026-02-27 11:43:02.254] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-2-000063] Burst-2 BUY USDJPY 0.37 lots
+[2026-02-27 11:43:02.265] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-9-000055] INVALID_PARAMS Error: Volume 0.500000 not aligned to step 0.010000
+[2026-02-27 11:43:02.265] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-8-000065
+[2026-02-27 11:43:02.265] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-8-000065
+[2026-02-27 11:43:02.265] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-8-000065] Burst-8 SELL XAUUSD 0.39 lots
+[2026-02-27 11:43:02.270] [WARN ] [Thread-0x16bf0b000] Worker-3 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.270] [WARN ] [Thread-0x16bf0b000] Worker-3 retrying Burst-3-000058 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:02.282] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-6-000062] SUCCESS Ticket=#100018 Price=149.84998
+[2026-02-27 11:43:02.282] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-10-000064
+[2026-02-27 11:43:02.282] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-10-000064
+[2026-02-27 11:43:02.282] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-10-000064] Burst-10 SELL USDJPY 0.16 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:02.283] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-1-000059] SUCCESS Ticket=#100019 Price=1.35740
+[2026-02-27 11:43:02.283] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-3-000066
+[2026-02-27 11:43:02.283] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-3-000066
+[2026-02-27 11:43:02.283] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-3-000066] Burst-3 BUY AUDUSD 0.4 lots
+[2026-02-27 11:43:02.290] [WARN ] [Thread-0x16c13b000] Worker-7 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.290] [INFO ] [Thread-0x16bdf3000] Worker-1 EXECUTED: [Burst-6-000040] SUCCESS Ticket=#100020 Price=149.84999 (retries=1)
+[2026-02-27 11:43:02.290] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-9-000067
+[2026-02-27 11:43:02.290] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-9-000067
+[2026-02-27 11:43:02.290] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-9-000067] Burst-9 BUY USDCAD 0.33 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.290] [WARN ] [Thread-0x16c13b000] Worker-7 retrying Burst-8-000048 (attempt 3/3, delay=100ms)
+[2026-02-27 11:43:02.319] [INFO ] [Thread-0x16be7f000] Worker-2 EXECUTED: [Burst-4-000060] SUCCESS Ticket=#100021 Price=2035.50001
+[2026-02-27 11:43:02.319] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-10-000068
+[2026-02-27 11:43:02.319] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-10-000068
+[2026-02-27 11:43:02.319] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-10-000068] Burst-10 SELL GBPUSD 0.13 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.325] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-3-000058] Burst-3 SELL XAUUSD 0.25 lots
+[2026-02-27 11:43:02.330] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-2-000063] INVALID_PARAMS Error: Volume 0.370000 not aligned to step 0.010000
+[2026-02-27 11:43:02.331] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-10-000069
+[2026-02-27 11:43:02.331] [WARN ] [Thread-0x16c0af000] Worker-6 validation failed: [Burst-10-000069] INVALID_PARAMS Error: Volume 999.000000 outside range [0.010000, 100.000000]
+[2026-02-27 11:43:02.331] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-7-000070
+[2026-02-27 11:43:02.331] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-7-000070
+[2026-02-27 11:43:02.331] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-7-000070] Burst-7 BUY EURUSD 0.24 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.357] [INFO ] [Thread-0x16c023000] Worker-5 EXECUTED: [Burst-8-000065] SUCCESS Ticket=#100022 Price=2035.50001
+[2026-02-27 11:43:02.357] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-7-000072
+[2026-02-27 11:43:02.357] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-7-000072
+[2026-02-27 11:43:02.357] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-7-000072] Burst-7 BUY XAUUSD 0.1 lots
+[2026-02-27 11:43:02.359] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-7-000070] INVALID_PARAMS Error: Volume 0.240000 not aligned to step 0.010000
+[2026-02-27 11:43:02.359] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-1-000074
+[2026-02-27 11:43:02.359] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-1-000074
+[2026-02-27 11:43:02.359] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-1-000074] Burst-1 BUY AUDUSD 0.36 lots
+[2026-02-27 11:43:02.365] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-3-000066] SUCCESS Ticket=#100023 Price=0.65250
+[2026-02-27 11:43:02.365] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-4-000071
+[2026-02-27 11:43:02.365] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-4-000071
+[2026-02-27 11:43:02.365] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-4-000071] Burst-4 SELL EURUSD 0.04 lots
+[2026-02-27 11:43:02.373] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-10-000064] SUCCESS Ticket=#100024 Price=149.84999
+[2026-02-27 11:43:02.373] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-3-000075
+[2026-02-27 11:43:02.373] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-3-000075
+[2026-02-27 11:43:02.373] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-3-000075] Burst-3 SELL GBPUSD 0.5 lots
+[2026-02-27 11:43:02.394] [INFO ] [Thread-0x16bdf3000] Worker-1 EXECUTED: [Burst-9-000067] SUCCESS Ticket=#100025 Price=1.35736
+[2026-02-27 11:43:02.394] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-5-000073
+[2026-02-27 11:43:02.394] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-5-000073
+[2026-02-27 11:43:02.394] [ERROR] [Thread-0x16bf97000] Worker-4 FAILED: [Burst-3-000075] INVALID_PARAMS Error: Volume 0.500000 not aligned to step 0.010000
+[2026-02-27 11:43:02.394] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-9-000076
+[2026-02-27 11:43:02.394] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-9-000076
+[2026-02-27 11:43:02.394] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-9-000076] Burst-9 SELL USDJPY 0.42 lots
+[2026-02-27 11:43:02.394] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-5-000073] Burst-5 BUY GBPUSD 0.05 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.394] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-8-000048] Burst-8 SELL XAUUSD 0.35 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:02.399] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-3-000058] INVALID_PARAMS Error: Volume 0.250000 not aligned to step 0.010000 (retries=1)
+[2026-02-27 11:43:02.399] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-6-000077
+[2026-02-27 11:43:02.399] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-6-000077
+[2026-02-27 11:43:02.399] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-6-000077] Burst-6 BUY GBPUSD 0.43 lots
+[2026-02-27 11:43:02.400] [WARN ] [Thread-0x16c0af000] Worker-6 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.400] [WARN ] [Thread-0x16c0af000] Worker-6 retrying Burst-1-000074 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:02.410] [INFO ] [Thread-0x16be7f000] Worker-2 EXECUTED: [Burst-10-000068] SUCCESS Ticket=#100026 Price=1.26319
+[2026-02-27 11:43:02.410] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-2-000078
+[2026-02-27 11:43:02.410] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-2-000078
+[2026-02-27 11:43:02.410] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-2-000078] Burst-2 SELL XAUUSD 0.47 lots
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16c023000] Worker-5 EXECUTED: [Burst-7-000072] SUCCESS Ticket=#100027 Price=2036.00002
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-4-000079
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16be7f000] Worker-2 EXECUTED: [Burst-2-000078] SUCCESS Ticket=#100028 Price=2035.49999
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-4-000079
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-6-000080
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-4-000079] Burst-4 BUY AUDUSD 0.2 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-6-000080
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-6-000080] Burst-6 BUY GBPUSD 0.23 lots
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-8-000048] SUCCESS Ticket=#100030 Price=2035.50000 (retries=2)
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-8-000081
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-8-000081
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-8-000081] Burst-8 BUY USDJPY 0.28 lots
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16bdf3000] Worker-1 EXECUTED: [Burst-5-000073] SUCCESS Ticket=#100029 Price=1.26338
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-10-000082
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-10-000082
+[2026-02-27 11:43:02.430] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-10-000082] Burst-10 SELL XAUUSD 0.01 lots
+[2026-02-27 11:43:02.445] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-6-000077] INVALID_PARAMS Error: Volume 0.430000 not aligned to step 0.010000
+[2026-02-27 11:43:02.445] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-7-000083
+[2026-02-27 11:43:02.445] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-7-000083
+[2026-02-27 11:43:02.445] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-7-000083] Burst-7 SELL AUDUSD 0.4 lots
+[2026-02-27 11:43:02.450] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-1-000074] Burst-1 BUY AUDUSD 0.36 lots
+[2026-02-27 11:43:02.465] [ERROR] [Thread-0x16bf97000] Worker-4 FAILED: [Burst-9-000076] INVALID_PARAMS Error: Volume 0.420000 not aligned to step 0.010000
+[2026-02-27 11:43:02.466] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-9-000084
+[2026-02-27 11:43:02.466] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-9-000084
+[2026-02-27 11:43:02.466] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-9-000084] Burst-9 SELL EURUSD 0.04 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.468] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-4-000071] SUCCESS Ticket=#100031 Price=1.08449
+[2026-02-27 11:43:02.468] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-3-000086
+[2026-02-27 11:43:02.468] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-3-000086
+[2026-02-27 11:43:02.468] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-3-000086] Burst-3 BUY EURUSD 0.39 lots
+[2026-02-27 11:43:02.482] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-3-000086] SUCCESS Ticket=#100032 Price=1.08464
+[2026-02-27 11:43:02.482] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-2-000085
+[2026-02-27 11:43:02.482] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-2-000085
+[2026-02-27 11:43:02.482] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-2-000085] Burst-2 BUY GBPUSD 0.5 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16bf0b000] Worker-3 EXECUTED: [Burst-7-000083] SUCCESS Ticket=#100033 Price=0.65231
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-4-000087
+[2026-02-27 11:43:02.490] [WARN ] [Thread-0x16bf0b000] Worker-3 validation failed: [Burst-4-000087] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-3-000088
+[2026-02-27 11:43:02.490] [WARN ] [Thread-0x16bf0b000] Worker-3 validation failed: [Burst-3-000088] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-3-000089
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-3-000089
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-3-000089] Burst-3 BUY USDCAD 0.15 lots
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16c023000] Worker-5 EXECUTED: [Burst-4-000079] SUCCESS Ticket=#100034 Price=0.65247
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-10-000090
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-10-000090
+[2026-02-27 11:43:02.490] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-10-000090] Burst-10 SELL EURUSD 0.13 lots
+[2026-02-27 11:43:02.500] [INFO ] [Thread-0x16bdf3000] Worker-1 EXECUTED: [Burst-10-000082] SUCCESS Ticket=#100035 Price=2035.50002
+[2026-02-27 11:43:02.500] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-7-000091
+[2026-02-27 11:43:02.500] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-7-000091
+[2026-02-27 11:43:02.500] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-7-000091] Burst-7 BUY USDCAD 0.07 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.504] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-9-000084] SUCCESS Ticket=#100036 Price=1.08452
+[2026-02-27 11:43:02.504] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-9-000092
+[2026-02-27 11:43:02.504] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-9-000092
+[2026-02-27 11:43:02.504] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-9-000092] Burst-9 BUY USDJPY 0.09 lots SL=148.255 TP=149.745
+[2026-02-27 11:43:02.509] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-2-000085] INVALID_PARAMS Error: Volume 0.500000 not aligned to step 0.010000
+[2026-02-27 11:43:02.509] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-4-000093
+[2026-02-27 11:43:02.509] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-4-000093
+[2026-02-27 11:43:02.509] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-4-000093] Burst-4 SELL AUDUSD 0.5 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.510] [INFO ] [Thread-0x16c023000] Worker-5 EXECUTED: [Burst-10-000090] SUCCESS Ticket=#100037 Price=1.08452
+[2026-02-27 11:43:02.510] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-1-000094
+[2026-02-27 11:43:02.510] [WARN ] [Thread-0x16c023000] Worker-5 validation failed: [Burst-1-000094] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:02.510] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-5-000095
+[2026-02-27 11:43:02.510] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-5-000095
+[2026-02-27 11:43:02.510] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-5-000095] Burst-5 SELL GBPUSD 0.43 lots
+[2026-02-27 11:43:02.530] [INFO ] [Thread-0x16be7f000] Worker-2 EXECUTED: [Burst-6-000080] SUCCESS Ticket=#100038 Price=1.26339
+[2026-02-27 11:43:02.530] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-8-000096
+[2026-02-27 11:43:02.530] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-1-000074] INVALID_PARAMS Error: Volume 0.360000 not aligned to step 0.010000 (retries=1)
+[2026-02-27 11:43:02.530] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-5-000097
+[2026-02-27 11:43:02.530] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-8-000096
+[2026-02-27 11:43:02.530] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-8-000096] Burst-8 SELL USDCAD 0.21 lots
+[2026-02-27 11:43:02.530] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-5-000097
+[2026-02-27 11:43:02.530] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-5-000097] Burst-5 SELL AUDUSD 0.16 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.533] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-8-000081] SUCCESS Ticket=#100039 Price=149.86499
+[2026-02-27 11:43:02.533] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-6-000100
+[2026-02-27 11:43:02.533] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-6-000100
+[2026-02-27 11:43:02.533] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-6-000100] Burst-6 BUY USDJPY 0.07 lots
+[2026-02-27 11:43:02.553] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-5-000095] INVALID_PARAMS Error: Volume 0.430000 not aligned to step 0.010000
+[2026-02-27 11:43:02.553] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-2-000098
+[2026-02-27 11:43:02.553] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-2-000098
+[2026-02-27 11:43:02.553] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-2-000098] Burst-2 SELL XAUUSD 0.41 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:02.565] [INFO ] [Thread-0x16c0af000] Worker-6 EXECUTED: [Burst-5-000097] SUCCESS Ticket=#100040 Price=0.65230
+[2026-02-27 11:43:02.565] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-9-000099
+[2026-02-27 11:43:02.565] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-6-000100] SUCCESS Ticket=#100041 Price=149.86500
+[2026-02-27 11:43:02.566] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-3-000103
+[2026-02-27 11:43:02.566] [WARN ] [Thread-0x16c13b000] Worker-7 validation failed: [Burst-3-000103] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 11:43:02.565] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-9-000099
+[2026-02-27 11:43:02.566] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-10-000102
+[2026-02-27 11:43:02.566] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-10-000102
+[2026-02-27 11:43:02.566] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-9-000099] Burst-9 SELL XAUUSD 0.22 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:02.566] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-10-000102] Burst-10 BUY AUDUSD 0.35 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.570] [ERROR] [Thread-0x16bf97000] Worker-4 FAILED: [Burst-9-000092] INVALID_PARAMS Error: Volume 0.090000 not aligned to step 0.010000
+[2026-02-27 11:43:02.570] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-8-000101
+[2026-02-27 11:43:02.570] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-8-000101
+[2026-02-27 11:43:02.570] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-8-000101] Burst-8 BUY USDCAD 0.27 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.586] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-4-000093] INVALID_PARAMS Error: Volume 0.500000 not aligned to step 0.010000
+[2026-02-27 11:43:02.586] [INFO ] [Thread-0x16c023000] Worker-5 EXECUTED: [Burst-2-000098] SUCCESS Ticket=#100042 Price=2035.49998
+[2026-02-27 11:43:02.586] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-9-000104
+[2026-02-27 11:43:02.586] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-9-000104
+[2026-02-27 11:43:02.586] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-9-000104] Burst-9 SELL USDCAD 0.25 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.586] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-1-000105
+[2026-02-27 11:43:02.586] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-1-000105
+[2026-02-27 11:43:02.586] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-1-000105] Burst-1 BUY USDCAD 0.15 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.588] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-3-000089] INVALID_PARAMS Error: Volume 0.150000 not aligned to step 0.010000
+[2026-02-27 11:43:02.588] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-8-000108
+[2026-02-27 11:43:02.588] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-8-000108
+[2026-02-27 11:43:02.588] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-8-000108] Burst-8 BUY USDCAD 0.12 lots
+[2026-02-27 11:43:02.598] [INFO ] [Thread-0x16bdf3000] Worker-1 EXECUTED: [Burst-7-000091] SUCCESS Ticket=#100043 Price=1.35738
+[2026-02-27 11:43:02.598] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-7-000107
+[2026-02-27 11:43:02.598] [WARN ] [Thread-0x16bdf3000] Worker-1 validation failed: [Burst-7-000107] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 11:43:02.598] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-5-000106
+[2026-02-27 11:43:02.598] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-5-000106
+[2026-02-27 11:43:02.598] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-5-000106] Burst-5 BUY GBPUSD 0.03 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.598] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-8-000096] INVALID_PARAMS Error: Volume 0.210000 not aligned to step 0.010000
+[2026-02-27 11:43:02.598] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-4-000109
+[2026-02-27 11:43:02.598] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-4-000109
+[2026-02-27 11:43:02.598] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-4-000109] Burst-4 SELL XAUUSD 0.03 lots
+[2026-02-27 11:43:02.607] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-10-000102] SUCCESS Ticket=#100044 Price=0.65247
+[2026-02-27 11:43:02.607] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-5-000110
+[2026-02-27 11:43:02.607] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-5-000110
+[2026-02-27 11:43:02.607] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-5-000110] Burst-5 SELL AUDUSD 0.41 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.629] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-9-000104] INVALID_PARAMS Error: Volume 0.250000 not aligned to step 0.010000
+[2026-02-27 11:43:02.629] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-3-000111
+[2026-02-27 11:43:02.629] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-3-000111
+[2026-02-27 11:43:02.629] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-3-000111] Burst-3 SELL XAUUSD 0.08 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:02.632] [WARN ] [Thread-0x16c0af000] Worker-6 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.632] [WARN ] [Thread-0x16c0af000] Worker-6 retrying Burst-9-000099 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:02.640] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-1-000105] INVALID_PARAMS Error: Volume 0.150000 not aligned to step 0.010000
+[2026-02-27 11:43:02.640] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-1-000112
+[2026-02-27 11:43:02.640] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-1-000112
+[2026-02-27 11:43:02.640] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-1-000112] Burst-1 SELL EURUSD 0.3 lots
+[2026-02-27 11:43:02.640] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-8-000108] INVALID_PARAMS Error: Volume 0.120000 not aligned to step 0.010000
+[2026-02-27 11:43:02.640] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-2-000113
+[2026-02-27 11:43:02.640] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-2-000113
+[2026-02-27 11:43:02.640] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-2-000113] Burst-2 BUY XAUUSD 0.46 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:02.641] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-8-000101] SUCCESS Ticket=#100045 Price=1.35736
+[2026-02-27 11:43:02.641] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-6-000114
+[2026-02-27 11:43:02.641] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-6-000114
+[2026-02-27 11:43:02.641] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-6-000114] Burst-6 BUY USDJPY 0.39 lots
+[2026-02-27 11:43:02.651] [WARN ] [Thread-0x16bdf3000] Worker-1 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.651] [WARN ] [Thread-0x16bdf3000] Worker-1 retrying Burst-5-000106 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:02.665] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-3-000111] SUCCESS Ticket=#100046 Price=2035.49999
+[2026-02-27 11:43:02.665] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-10-000115
+[2026-02-27 11:43:02.665] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-10-000115
+[2026-02-27 11:43:02.665] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-10-000115] Burst-10 SELL USDCAD 0.33 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.672] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-4-000109] INVALID_PARAMS Error: Volume 0.030000 not aligned to step 0.010000
+[2026-02-27 11:43:02.672] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-2-000116
+[2026-02-27 11:43:02.672] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-2-000116
+[2026-02-27 11:43:02.672] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-2-000116] Burst-2 BUY USDJPY 0.13 lots
+[2026-02-27 11:43:02.672] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-5-000110] SUCCESS Ticket=#100047 Price=0.65232
+[2026-02-27 11:43:02.673] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-4-000117
+[2026-02-27 11:43:02.673] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-4-000117
+[2026-02-27 11:43:02.673] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-4-000117] Burst-4 BUY AUDUSD 0.28 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-9-000099] Burst-9 SELL XAUUSD 0.22 lots SL=2045.17 TP=2024.83
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-4-000117] SUCCESS Ticket=#100049 Price=0.65246
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-7-000118
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-7-000118
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-7-000118] Burst-7 BUY AUDUSD 0.45 lots
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16bf0b000] Worker-3 EXECUTED: [Burst-2-000113] SUCCESS Ticket=#100048 Price=2035.99999
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-9-000119
+[2026-02-27 11:43:02.687] [WARN ] [Thread-0x16bf0b000] Worker-3 validation failed: [Burst-9-000119] INVALID_PARAMS Error: Volume 999.000000 outside range [0.010000, 100.000000]
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-10-000120
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-10-000120
+[2026-02-27 11:43:02.687] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-10-000120] Burst-10 BUY USDJPY 0.33 lots
+[2026-02-27 11:43:02.700] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-1-000112] INVALID_PARAMS Error: Volume 0.300000 not aligned to step 0.010000
+[2026-02-27 11:43:02.700] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-7-000121
+[2026-02-27 11:43:02.700] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-7-000121
+[2026-02-27 11:43:02.700] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-6-000114] SUCCESS Ticket=#100050 Price=149.86498
+[2026-02-27 11:43:02.700] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-8-000122
+[2026-02-27 11:43:02.700] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-8-000122] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:02.700] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-5-000123
+[2026-02-27 11:43:02.700] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-7-000121] Burst-7 BUY USDJPY 0.19 lots
+[2026-02-27 11:43:02.700] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-5-000123
+[2026-02-27 11:43:02.700] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-5-000123] Burst-5 SELL AUDUSD 0.27 lots
+[2026-02-27 11:43:02.706] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-5-000106] Burst-5 BUY GBPUSD 0.03 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.706] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-10-000115] SUCCESS Ticket=#100051 Price=1.35722
+[2026-02-27 11:43:02.706] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-4-000124
+[2026-02-27 11:43:02.706] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-4-000124
+[2026-02-27 11:43:02.706] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-4-000124] Burst-4 BUY GBPUSD 0.1 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.720] [WARN ] [Thread-0x16c023000] Worker-5 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.721] [WARN ] [Thread-0x16c023000] Worker-5 retrying Burst-7-000121 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:02.728] [INFO ] [Thread-0x16bf0b000] Worker-3 EXECUTED: [Burst-10-000120] SUCCESS Ticket=#100052 Price=149.86500
+[2026-02-27 11:43:02.728] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-3-000125
+[2026-02-27 11:43:02.728] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-3-000125
+[2026-02-27 11:43:02.728] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-3-000125] Burst-3 BUY GBPUSD 0.31 lots
+[2026-02-27 11:43:02.741] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-4-000124] SUCCESS Ticket=#100053 Price=1.26339
+[2026-02-27 11:43:02.741] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-1-000126
+[2026-02-27 11:43:02.741] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-1-000126
+[2026-02-27 11:43:02.741] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-1-000126] Burst-1 BUY XAUUSD 0.05 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:02.764] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-9-000099] INVALID_PARAMS Error: Volume 0.220000 not aligned to step 0.010000 (retries=1)
+[2026-02-27 11:43:02.764] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-1-000127
+[2026-02-27 11:43:02.764] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-1-000127
+[2026-02-27 11:43:02.764] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-1-000127] Burst-1 SELL GBPUSD 0.21 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.773] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-7-000118] SUCCESS Ticket=#100054 Price=0.65250
+[2026-02-27 11:43:02.773] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-2-000128
+[2026-02-27 11:43:02.773] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-2-000128
+[2026-02-27 11:43:02.773] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-2-000128] Burst-2 BUY USDCAD 0.16 lots
+[2026-02-27 11:43:02.776] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-7-000121] Burst-7 BUY USDJPY 0.19 lots
+[2026-02-27 11:43:02.777] [INFO ] [Thread-0x16be7f000] Worker-2 EXECUTED: [Burst-2-000116] SUCCESS Ticket=#100055 Price=149.86500
+[2026-02-27 11:43:02.778] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-9-000129
+[2026-02-27 11:43:02.778] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-9-000129
+[2026-02-27 11:43:02.778] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-9-000129] Burst-9 SELL GBPUSD 0.5 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-5-000123] SUCCESS Ticket=#100056 Price=0.65231
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-8-000130
+[2026-02-27 11:43:02.783] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-8-000130] INVALID_PARAMS Error: Volume 999.000000 outside range [0.010000, 100.000000]
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-4-000131
+[2026-02-27 11:43:02.783] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-4-000131] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-6-000132
+[2026-02-27 11:43:02.783] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-6-000132] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-10-000133
+[2026-02-27 11:43:02.783] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-10-000133] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-9-000134
+[2026-02-27 11:43:02.783] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-9-000134] INVALID_PARAMS Error: Unknown symbol: INVALID
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-10-000135
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-10-000135
+[2026-02-27 11:43:02.783] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-10-000135] Burst-10 SELL USDJPY 0.07 lots
+[2026-02-27 11:43:02.788] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-3-000125] INVALID_PARAMS Error: Volume 0.310000 not aligned to step 0.010000
+[2026-02-27 11:43:02.788] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-1-000136
+[2026-02-27 11:43:02.788] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-1-000136
+[2026-02-27 11:43:02.788] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-1-000136] Burst-1 SELL GBPUSD 0.04 lots
+[2026-02-27 11:43:02.799] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-5-000106] INVALID_PARAMS Error: Volume 0.030000 not aligned to step 0.010000 (retries=1)
+[2026-02-27 11:43:02.799] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-1-000126] SUCCESS Ticket=#100057 Price=2036.00000
+[2026-02-27 11:43:02.799] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-9-000137
+[2026-02-27 11:43:02.799] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-9-000137
+[2026-02-27 11:43:02.799] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-7-000138
+[2026-02-27 11:43:02.799] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-9-000137] Burst-9 BUY AUDUSD 0.03 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.799] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-7-000138
+[2026-02-27 11:43:02.799] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-7-000138] Burst-7 BUY XAUUSD 0.49 lots
+[2026-02-27 11:43:02.801] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-10-000135] SUCCESS Ticket=#100058 Price=149.84998
+[2026-02-27 11:43:02.801] [WARN ] [Thread-0x16c13b000] Worker-7 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:02.801] [WARN ] [Thread-0x16c13b000] Worker-7 retrying Burst-2-000128 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:02.801] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-5-000139
+[2026-02-27 11:43:02.802] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-5-000139
+[2026-02-27 11:43:02.802] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-5-000139] Burst-5 SELL EURUSD 0.02 lots
+[2026-02-27 11:43:02.813] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-7-000138] INVALID_PARAMS Error: Volume 0.490000 not aligned to step 0.010000
+[2026-02-27 11:43:02.813] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-10-000140
+[2026-02-27 11:43:02.813] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-10-000140
+[2026-02-27 11:43:02.813] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-10-000140] Burst-10 BUY GBPUSD 0.5 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.838] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-5-000139] SUCCESS Ticket=#100059 Price=1.08449
+[2026-02-27 11:43:02.838] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-1-000141
+[2026-02-27 11:43:02.838] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-1-000141
+[2026-02-27 11:43:02.838] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-1-000141] Burst-1 BUY EURUSD 0.45 lots
+[2026-02-27 11:43:02.843] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-1-000127] INVALID_PARAMS Error: Volume 0.210000 not aligned to step 0.010000
+[2026-02-27 11:43:02.843] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-6-000142
+[2026-02-27 11:43:02.843] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-6-000142
+[2026-02-27 11:43:02.843] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-6-000142] Burst-6 SELL USDJPY 0.36 lots
+[2026-02-27 11:43:02.857] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-2-000128] Burst-2 BUY USDCAD 0.16 lots
+[2026-02-27 11:43:02.857] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-9-000129] INVALID_PARAMS Error: Volume 0.500000 not aligned to step 0.010000
+[2026-02-27 11:43:02.857] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-8-000143
+[2026-02-27 11:43:02.857] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-8-000143
+[2026-02-27 11:43:02.857] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-8-000143] Burst-8 BUY EURUSD 0.36 lots
+[2026-02-27 11:43:02.859] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-9-000137] INVALID_PARAMS Error: Volume 0.030000 not aligned to step 0.010000
+[2026-02-27 11:43:02.859] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-2-000144
+[2026-02-27 11:43:02.859] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-2-000144
+[2026-02-27 11:43:02.859] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-2-000144] Burst-2 SELL AUDUSD 0.33 lots
+[2026-02-27 11:43:02.871] [INFO ] [Thread-0x16bf0b000] Worker-3 EXECUTED: [Burst-1-000136] SUCCESS Ticket=#100060 Price=1.26322
+[2026-02-27 11:43:02.871] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-3-000145
+[2026-02-27 11:43:02.871] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-3-000145
+[2026-02-27 11:43:02.871] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-3-000145] Burst-3 SELL AUDUSD 0.19 lots
+[2026-02-27 11:43:02.874] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-8-000143] INVALID_PARAMS Error: Volume 0.360000 not aligned to step 0.010000
+[2026-02-27 11:43:02.874] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-6-000146
+[2026-02-27 11:43:02.874] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-6-000146
+[2026-02-27 11:43:02.874] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-6-000146] Burst-6 BUY XAUUSD 0.37 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:02.878] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-7-000121] INVALID_PARAMS Error: Volume 0.190000 not aligned to step 0.010000 (retries=1)
+[2026-02-27 11:43:02.878] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-9-000147
+[2026-02-27 11:43:02.878] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-9-000147
+[2026-02-27 11:43:02.878] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-9-000147] Burst-9 SELL AUDUSD 0.08 lots
+[2026-02-27 11:43:02.889] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-10-000140] INVALID_PARAMS Error: Volume 0.500000 not aligned to step 0.010000
+[2026-02-27 11:43:02.889] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-4-000148
+[2026-02-27 11:43:02.889] [WARN ] [Thread-0x16bd67000] Worker-0 validation failed: [Burst-4-000148] INVALID_PARAMS Error: Volume 999.000000 outside range [0.010000, 100.000000]
+[2026-02-27 11:43:02.889] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-2-000149
+[2026-02-27 11:43:02.889] [WARN ] [Thread-0x16bd67000] Worker-0 validation failed: [Burst-2-000149] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 11:43:02.889] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-8-000151
+[2026-02-27 11:43:02.889] [WARN ] [Thread-0x16bd67000] Worker-0 validation failed: [Burst-8-000151] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:02.889] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-7-000153
+[2026-02-27 11:43:02.889] [WARN ] [Thread-0x16bd67000] Worker-0 validation failed: [Burst-7-000153] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:02.889] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-10-000150
+[2026-02-27 11:43:02.889] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-10-000150
+[2026-02-27 11:43:02.889] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-10-000150] Burst-10 BUY USDCAD 0.33 lots
+[2026-02-27 11:43:02.896] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-1-000141] SUCCESS Ticket=#100061 Price=1.08465
+[2026-02-27 11:43:02.896] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-5-000154
+[2026-02-27 11:43:02.896] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-5-000154] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 11:43:02.896] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-3-000152
+[2026-02-27 11:43:02.896] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-3-000152
+[2026-02-27 11:43:02.896] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-3-000152] Burst-3 SELL GBPUSD 0.23 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:02.911] [INFO ] [Thread-0x16bdf3000] Worker-1 EXECUTED: [Burst-2-000144] SUCCESS Ticket=#100062 Price=0.65232
+[2026-02-27 11:43:02.911] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-9-000155
+[2026-02-27 11:43:02.911] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-9-000155
+[2026-02-27 11:43:02.911] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-9-000155] Burst-9 BUY XAUUSD 0.13 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:02.940] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-6-000142] INVALID_PARAMS Error: Volume 0.360000 not aligned to step 0.010000
+[2026-02-27 11:43:02.940] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-1-000156
+[2026-02-27 11:43:02.940] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-1-000156
+[2026-02-27 11:43:02.941] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-1-000156] Burst-1 SELL AUDUSD 0.22 lots
+[2026-02-27 11:43:02.940] [INFO ] [Thread-0x16c023000] Worker-5 EXECUTED: [Burst-9-000147] SUCCESS Ticket=#100063 Price=0.65229
+[2026-02-27 11:43:02.941] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-3-000157
+[2026-02-27 11:43:02.941] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-3-000157
+[2026-02-27 11:43:02.941] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-3-000157] Burst-3 SELL USDJPY 0.42 lots
+[2026-02-27 11:43:02.949] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-3-000152] SUCCESS Ticket=#100064 Price=1.26320
+[2026-02-27 11:43:02.949] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-7-000158
+[2026-02-27 11:43:02.949] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-7-000158
+[2026-02-27 11:43:02.949] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-7-000158] Burst-7 BUY USDCAD 0.32 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:02.957] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-2-000128] SUCCESS Ticket=#100065 Price=1.35739 (retries=1)
+[2026-02-27 11:43:02.957] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-3-000159
+[2026-02-27 11:43:02.957] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-3-000159
+[2026-02-27 11:43:02.957] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-3-000159] Burst-3 SELL USDJPY 0.3 lots
+[2026-02-27 11:43:02.967] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-3-000145] INVALID_PARAMS Error: Volume 0.190000 not aligned to step 0.010000
+[2026-02-27 11:43:02.967] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-6-000146] INVALID_PARAMS Error: Volume 0.370000 not aligned to step 0.010000
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-4-000161
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-4-000161
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-2-000160
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-2-000160
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-2-000160] Burst-2 SELL AUDUSD 0.48 lots
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-4-000161] Burst-4 SELL USDCAD 0.19 lots
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16bdf3000] Worker-1 EXECUTED: [Burst-9-000155] SUCCESS Ticket=#100066 Price=2036.00001
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-4-000162
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-4-000162
+[2026-02-27 11:43:02.967] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-4-000162] Burst-4 BUY AUDUSD 0.19 lots
+[2026-02-27 11:43:02.974] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-7-000158] SUCCESS Ticket=#100067 Price=1.35739
+[2026-02-27 11:43:02.974] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-1-000163
+[2026-02-27 11:43:02.974] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-1-000163
+[2026-02-27 11:43:02.974] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-1-000163] Burst-1 SELL USDCAD 0.46 lots
+[2026-02-27 11:43:02.989] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-3-000157] INVALID_PARAMS Error: Volume 0.420000 not aligned to step 0.010000
+[2026-02-27 11:43:02.989] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-5-000164
+[2026-02-27 11:43:02.989] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-5-000164
+[2026-02-27 11:43:02.989] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-10-000150] SUCCESS Ticket=#100068 Price=1.35740
+[2026-02-27 11:43:02.989] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-5-000164] Burst-5 BUY XAUUSD 0.25 lots
+[2026-02-27 11:43:02.989] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-6-000165
+[2026-02-27 11:43:02.989] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-6-000165
+[2026-02-27 11:43:02.989] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-6-000165] Burst-6 BUY EURUSD 0.25 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:03.008] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-1-000156] INVALID_PARAMS Error: Volume 0.220000 not aligned to step 0.010000
+[2026-02-27 11:43:03.008] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-10-000167
+[2026-02-27 11:43:03.008] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-10-000167
+[2026-02-27 11:43:03.008] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-10-000167] Burst-10 SELL EURUSD 0.17 lots
+[2026-02-27 11:43:03.015] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-2-000160] INVALID_PARAMS Error: Volume 0.480000 not aligned to step 0.010000
+[2026-02-27 11:43:03.015] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-8-000166
+[2026-02-27 11:43:03.015] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-8-000166
+[2026-02-27 11:43:03.015] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-8-000166] Burst-8 SELL GBPUSD 0.24 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:03.032] [ERROR] [Thread-0x16c13b000] Worker-7 FAILED: [Burst-3-000159] INVALID_PARAMS Error: Volume 0.300000 not aligned to step 0.010000
+[2026-02-27 11:43:03.032] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-7-000168
+[2026-02-27 11:43:03.032] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-7-000168
+[2026-02-27 11:43:03.032] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-4-000162] INVALID_PARAMS Error: Volume 0.190000 not aligned to step 0.010000
+[2026-02-27 11:43:03.032] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-4-000169
+[2026-02-27 11:43:03.032] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-7-000168] Burst-7 BUY USDJPY 0.3 lots
+[2026-02-27 11:43:03.032] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-4-000169
+[2026-02-27 11:43:03.032] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-4-000169] Burst-4 BUY USDJPY 0.29 lots SL=148.255 TP=149.745
+[2026-02-27 11:43:03.039] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-4-000161] INVALID_PARAMS Error: Volume 0.190000 not aligned to step 0.010000
+[2026-02-27 11:43:03.039] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-5-000170
+[2026-02-27 11:43:03.039] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-5-000170
+[2026-02-27 11:43:03.039] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-5-000170] Burst-5 SELL XAUUSD 0.19 lots
+[2026-02-27 11:43:03.044] [ERROR] [Thread-0x16c13b000] Worker-7 FAILED: [Burst-7-000168] INVALID_PARAMS Error: Volume 0.300000 not aligned to step 0.010000
+[2026-02-27 11:43:03.044] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-2-000171
+[2026-02-27 11:43:03.044] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-2-000171
+[2026-02-27 11:43:03.044] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-2-000171] Burst-2 BUY GBPUSD 0.23 lots
+[2026-02-27 11:43:03.048] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-4-000169] INVALID_PARAMS Error: Volume 0.290000 not aligned to step 0.010000
+[2026-02-27 11:43:03.048] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-7-000172
+[2026-02-27 11:43:03.048] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-7-000172
+[2026-02-27 11:43:03.048] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-7-000172] Burst-7 SELL USDJPY 0.22 lots
+[2026-02-27 11:43:03.054] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-5-000164] INVALID_PARAMS Error: Volume 0.250000 not aligned to step 0.010000
+[2026-02-27 11:43:03.054] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-3-000173
+[2026-02-27 11:43:03.054] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-3-000173
+[2026-02-27 11:43:03.054] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-3-000173] Burst-3 SELL AUDUSD 0.21 lots
+[2026-02-27 11:43:03.065] [INFO ] [Thread-0x16c0af000] Worker-6 EXECUTED: [Burst-10-000167] SUCCESS Ticket=#100069 Price=1.08451
+[2026-02-27 11:43:03.065] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-6-000174
+[2026-02-27 11:43:03.065] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-6-000174
+[2026-02-27 11:43:03.065] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-6-000174] Burst-6 SELL USDJPY 0.12 lots SL=149.745 TP=148.255
+[2026-02-27 11:43:03.070] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-8-000166] INVALID_PARAMS Error: Volume 0.240000 not aligned to step 0.010000
+[2026-02-27 11:43:03.071] [INFO ] [Thread-0x16bf0b000] Worker-3 validating: Burst-2-000175
+[2026-02-27 11:43:03.071] [INFO ] [Thread-0x16bf0b000] Worker-3 validation passed: Burst-2-000175
+[2026-02-27 11:43:03.071] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-2-000175] Burst-2 BUY AUDUSD 0.3 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:03.072] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-1-000163] SUCCESS Ticket=#100070 Price=1.35720
+[2026-02-27 11:43:03.072] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-1-000176
+[2026-02-27 11:43:03.072] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-1-000176
+[2026-02-27 11:43:03.072] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-1-000176] Burst-1 BUY USDJPY 0.35 lots SL=148.255 TP=149.745
+[2026-02-27 11:43:03.079] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-6-000174] INVALID_PARAMS Error: Volume 0.120000 not aligned to step 0.010000
+[2026-02-27 11:43:03.079] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-4-000177
+[2026-02-27 11:43:03.079] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-4-000177
+[2026-02-27 11:43:03.079] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-4-000177] Burst-4 SELL GBPUSD 0.03 lots
+[2026-02-27 11:43:03.084] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-2-000171] SUCCESS Ticket=#100071 Price=1.26340
+[2026-02-27 11:43:03.084] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-1-000178
+[2026-02-27 11:43:03.084] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-1-000178
+[2026-02-27 11:43:03.085] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-1-000178] Burst-1 SELL EURUSD 0.31 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:03.089] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-6-000165] INVALID_PARAMS Error: Volume 0.250000 not aligned to step 0.010000
+[2026-02-27 11:43:03.089] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-10-000179
+[2026-02-27 11:43:03.089] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-10-000179
+[2026-02-27 11:43:03.089] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-10-000179] Burst-10 BUY AUDUSD 0.46 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:03.093] [WARN ] [Thread-0x16bf0b000] Worker-3 transient failure: MT5 server connection timeout during DealerSend()
+[2026-02-27 11:43:03.093] [WARN ] [Thread-0x16bf0b000] Worker-3 retrying Burst-2-000175 (attempt 2/3, delay=50ms)
+[2026-02-27 11:43:03.099] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-1-000176] SUCCESS Ticket=#100072 Price=149.86498
+[2026-02-27 11:43:03.099] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-5-000170] INVALID_PARAMS Error: Volume 0.190000 not aligned to step 0.010000
+[2026-02-27 11:43:03.099] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-8-000181
+[2026-02-27 11:43:03.099] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-8-000181
+[2026-02-27 11:43:03.099] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-2-000180
+[2026-02-27 11:43:03.099] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-2-000180
+[2026-02-27 11:43:03.099] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-2-000180] Burst-2 SELL USDCAD 0.15 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:03.099] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-8-000181] Burst-8 BUY AUDUSD 0.14 lots
+[2026-02-27 11:43:03.104] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-3-000173] INVALID_PARAMS Error: Volume 0.210000 not aligned to step 0.010000
+[2026-02-27 11:43:03.104] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-3-000182
+[2026-02-27 11:43:03.104] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-3-000182
+[2026-02-27 11:43:03.104] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-3-000182] Burst-3 BUY USDCAD 0.06 lots
+[2026-02-27 11:43:03.128] [ERROR] [Thread-0x16bf97000] Worker-4 FAILED: [Burst-2-000180] INVALID_PARAMS Error: Volume 0.150000 not aligned to step 0.010000
+[2026-02-27 11:43:03.128] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-5-000183
+[2026-02-27 11:43:03.128] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-5-000183] INVALID_PARAMS Error: Invalid stop loss: -1.000000
+[2026-02-27 11:43:03.128] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-7-000184
+[2026-02-27 11:43:03.128] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-7-000184
+[2026-02-27 11:43:03.128] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-7-000184] Burst-7 SELL XAUUSD 0.28 lots
+[2026-02-27 11:43:03.146] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-10-000179] SUCCESS Ticket=#100073 Price=0.65250
+[2026-02-27 11:43:03.146] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-6-000185
+[2026-02-27 11:43:03.146] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-6-000185
+[2026-02-27 11:43:03.146] [INFO ] [Thread-0x16bf0b000] Worker-3 executing via MT API (DealerSend): [Burst-2-000175] Burst-2 BUY AUDUSD 0.3 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:03.146] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-6-000185] Burst-6 BUY AUDUSD 0.29 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:03.151] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-7-000172] INVALID_PARAMS Error: Volume 0.220000 not aligned to step 0.010000
+[2026-02-27 11:43:03.151] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-4-000186
+[2026-02-27 11:43:03.151] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-7-000184] SUCCESS Ticket=#100074 Price=2035.50000
+[2026-02-27 11:43:03.151] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-6-000187
+[2026-02-27 11:43:03.151] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-6-000187
+[2026-02-27 11:43:03.151] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-6-000187] Burst-6 BUY AUDUSD 0.06 lots
+[2026-02-27 11:43:03.151] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-4-000186
+[2026-02-27 11:43:03.151] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-4-000186] Burst-4 SELL AUDUSD 0.32 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:03.152] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-3-000182] INVALID_PARAMS Error: Volume 0.060000 not aligned to step 0.010000
+[2026-02-27 11:43:03.152] [INFO ] [Thread-0x16c023000] Worker-5 validating: Burst-2-000188
+[2026-02-27 11:43:03.152] [INFO ] [Thread-0x16c023000] Worker-5 validation passed: Burst-2-000188
+[2026-02-27 11:43:03.152] [INFO ] [Thread-0x16c023000] Worker-5 executing via MT API (DealerSend): [Burst-2-000188] Burst-2 BUY USDCAD 0.11 lots
+[2026-02-27 11:43:03.157] [ERROR] [Thread-0x16c13b000] Worker-7 FAILED: [Burst-1-000178] INVALID_PARAMS Error: Volume 0.310000 not aligned to step 0.010000
+[2026-02-27 11:43:03.157] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-8-000189
+[2026-02-27 11:43:03.157] [WARN ] [Thread-0x16c13b000] Worker-7 validation failed: [Burst-8-000189] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:03.157] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-5-000190
+[2026-02-27 11:43:03.157] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-5-000190
+[2026-02-27 11:43:03.157] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-5-000190] Burst-5 BUY XAUUSD 0.43 lots SL=2024.83 TP=2045.17
+[2026-02-27 11:43:03.175] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-4-000177] INVALID_PARAMS Error: Volume 0.030000 not aligned to step 0.010000
+[2026-02-27 11:43:03.175] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-7-000191
+[2026-02-27 11:43:03.175] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-7-000191
+[2026-02-27 11:43:03.175] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-7-000191] Burst-7 BUY USDCAD 0.4 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:03.181] [ERROR] [Thread-0x16bf97000] Worker-4 FAILED: [Burst-6-000187] INVALID_PARAMS Error: Volume 0.060000 not aligned to step 0.010000
+[2026-02-27 11:43:03.181] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-2-000192
+[2026-02-27 11:43:03.181] [WARN ] [Thread-0x16bf97000] Worker-4 validation failed: [Burst-2-000192] INVALID_PARAMS Error: Invalid volume: 0.000000
+[2026-02-27 11:43:03.181] [INFO ] [Thread-0x16bf97000] Worker-4 validating: Burst-8-000193
+[2026-02-27 11:43:03.181] [INFO ] [Thread-0x16bf97000] Worker-4 validation passed: Burst-8-000193
+[2026-02-27 11:43:03.181] [ERROR] [Thread-0x16c13b000] Worker-7 FAILED: [Burst-5-000190] INVALID_PARAMS Error: Volume 0.430000 not aligned to step 0.010000
+[2026-02-27 11:43:03.182] [INFO ] [Thread-0x16c13b000] Worker-7 validating: Burst-2-000194
+[2026-02-27 11:43:03.182] [INFO ] [Thread-0x16c13b000] Worker-7 validation passed: Burst-2-000194
+[2026-02-27 11:43:03.182] [INFO ] [Thread-0x16bf97000] Worker-4 executing via MT API (DealerSend): [Burst-8-000193] Burst-8 BUY XAUUSD 0.01 lots
+[2026-02-27 11:43:03.182] [INFO ] [Thread-0x16c13b000] Worker-7 executing via MT API (DealerSend): [Burst-2-000194] Burst-2 BUY USDJPY 0.13 lots
+[2026-02-27 11:43:03.186] [INFO ] [Thread-0x16be7f000] Worker-2 EXECUTED: [Burst-8-000181] SUCCESS Ticket=#100075 Price=0.65246
+[2026-02-27 11:43:03.186] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-8-000196
+[2026-02-27 11:43:03.186] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-8-000196
+[2026-02-27 11:43:03.186] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-8-000196] Burst-8 SELL GBPUSD 0.34 lots SL=1.005 TP=0.995
+[2026-02-27 11:43:03.189] [INFO ] [Thread-0x16c0af000] Worker-6 EXECUTED: [Burst-7-000191] SUCCESS Ticket=#100076 Price=1.35736
+[2026-02-27 11:43:03.189] [INFO ] [Thread-0x16c0af000] Worker-6 validating: Burst-4-000195
+[2026-02-27 11:43:03.189] [INFO ] [Thread-0x16c0af000] Worker-6 validation passed: Burst-4-000195
+[2026-02-27 11:43:03.189] [INFO ] [Thread-0x16c0af000] Worker-6 executing via MT API (DealerSend): [Burst-4-000195] Burst-4 SELL AUDUSD 0.48 lots
+[2026-02-27 11:43:03.198] [INFO ] [Thread-0x16bdf3000] Worker-1 EXECUTED: [Burst-4-000186] SUCCESS Ticket=#100077 Price=0.65231
+[2026-02-27 11:43:03.198] [INFO ] [Thread-0x16bdf3000] Worker-1 validating: Burst-8-000197
+[2026-02-27 11:43:03.198] [INFO ] [Thread-0x16bdf3000] Worker-1 validation passed: Burst-8-000197
+[2026-02-27 11:43:03.198] [INFO ] [Thread-0x16bdf3000] Worker-1 executing via MT API (DealerSend): [Burst-8-000197] Burst-8 SELL GBPUSD 0.3 lots
+[2026-02-27 11:43:03.215] [INFO ] [Thread-0x16be7f000] Worker-2 EXECUTED: [Burst-8-000196] SUCCESS Ticket=#100078 Price=1.26321
+[2026-02-27 11:43:03.215] [INFO ] [Thread-0x16be7f000] Worker-2 validating: Burst-2-000198
+[2026-02-27 11:43:03.215] [INFO ] [Thread-0x16be7f000] Worker-2 validation passed: Burst-2-000198
+[2026-02-27 11:43:03.215] [INFO ] [Thread-0x16be7f000] Worker-2 executing via MT API (DealerSend): [Burst-2-000198] Burst-2 BUY AUDUSD 0.09 lots
+[2026-02-27 11:43:03.223] [ERROR] [Thread-0x16bd67000] Worker-0 FAILED: [Burst-6-000185] INVALID_PARAMS Error: Volume 0.290000 not aligned to step 0.010000
+[2026-02-27 11:43:03.223] [INFO ] [Thread-0x16bd67000] Worker-0 validating: Burst-8-000199
+[2026-02-27 11:43:03.223] [INFO ] [Thread-0x16bd67000] Worker-0 validation passed: Burst-8-000199
+[2026-02-27 11:43:03.223] [INFO ] [Thread-0x16bd67000] Worker-0 executing via MT API (DealerSend): [Burst-8-000199] Burst-8 BUY EURUSD 0.45 lots SL=0.995 TP=1.005
+[2026-02-27 11:43:03.238] [ERROR] [Thread-0x16bdf3000] Worker-1 FAILED: [Burst-8-000197] INVALID_PARAMS Error: Volume 0.300000 not aligned to step 0.010000
+[2026-02-27 11:43:03.238] [ERROR] [Thread-0x16bf0b000] Worker-3 FAILED: [Burst-2-000175] INVALID_PARAMS Error: Volume 0.300000 not aligned to step 0.010000 (retries=1)
+[2026-02-27 11:43:03.240] [ERROR] [Thread-0x16c023000] Worker-5 FAILED: [Burst-2-000188] INVALID_PARAMS Error: Volume 0.110000 not aligned to step 0.010000
+[2026-02-27 11:43:03.240] [ERROR] [Thread-0x16c0af000] Worker-6 FAILED: [Burst-4-000195] INVALID_PARAMS Error: Volume 0.480000 not aligned to step 0.010000
+[2026-02-27 11:43:03.273] [INFO ] [Thread-0x16c13b000] Worker-7 EXECUTED: [Burst-2-000194] SUCCESS Ticket=#100079 Price=149.86499
+[2026-02-27 11:43:03.275] [INFO ] [Thread-0x16bf97000] Worker-4 EXECUTED: [Burst-8-000193] SUCCESS Ticket=#100080 Price=2036.00002
+[2026-02-27 11:43:03.279] [ERROR] [Thread-0x16be7f000] Worker-2 FAILED: [Burst-2-000198] INVALID_PARAMS Error: Volume 0.090000 not aligned to step 0.010000
+[2026-02-27 11:43:03.304] [INFO ] [Thread-0x16bd67000] Worker-0 EXECUTED: [Burst-8-000199] SUCCESS Ticket=#100081 Price=1.08464
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x200f42080] DealProcessor shutting down... draining queue (0 pending)
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x16bd67000] Worker-0 stopped
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x16bf0b000] Worker-3 stopped
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x16c023000] Worker-5 stopped
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x16bdf3000] Worker-1 stopped
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x16c13b000] Worker-7 stopped
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x16bf97000] Worker-4 stopped
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x16be7f000] Worker-2 stopped
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x16c0af000] Worker-6 stopped
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x200f42080] DealProcessor stopped. All workers joined.
+
+  Burst Test Results:
+    Total requests:     200
+    Total time:         1947ms
+    Throughput:          102.7 req/sec
+    Lost requests:      0 (verified by tracker)
+
+================================================================
+                    EXECUTION SUMMARY
+================================================================
+  Total Requests:   200
+  Successful:       82
+  Rejected:         0
+  Errors:           118
+  Duplicates:       0
+  Success Rate:     41.0%
+================================================================
+
+  Per-Client Breakdown:
+  Client      Total   OK      Fail    Dup     
+  --------------------------------------------
+  Burst-5     20      7       13      0       
+  Burst-9     20      7       13      0       
+  Burst-1     20      9       11      0       
+  Burst-10    20      15      5       0       
+  Burst-6     20      9       11      0       
+  Burst-7     20      9       11      0       
+  Burst-3     20      4       16      0       
+  Burst-4     20      6       14      0       
+  Burst-8     20      8       12      0       
+  Burst-2     20      8       12      0       
+
+  Request ID -> MT Ticket Mapping (successful trades):
+  Request ID            Ticket      Price
+  --------------------------------------------------
+  Burst-7-000184        #100074     2035.50000
+  Burst-7-000006        #100000     1.26318
+  Burst-4-000186        #100077     0.65231
+  Burst-6-000029        #100007     1.35737
+  Burst-5-000056        #100015     0.65230
+  Burst-10-000102       #100044     0.65247
+  Burst-1-000176        #100072     149.86498
+  Burst-9-000037        #100008     1.35736
+  Burst-10-000167       #100069     1.08451
+  Burst-9-000030        #100006     0.65229
+  Burst-10-000150       #100068     1.35740
+  Burst-2-000128        #100065     1.35739
+  Burst-9-000147        #100063     0.65229
+  Burst-2-000144        #100062     0.65232
+  Burst-3-000152        #100064     1.26320
+  Burst-1-000141        #100061     1.08465
+  Burst-5-000139        #100059     1.08449
+  Burst-5-000123        #100056     0.65231
+  Burst-10-000135       #100058     149.84998
+  Burst-9-000155        #100066     2036.00001
+  Burst-3-000111        #100046     2035.49999
+  Burst-4-000124        #100053     1.26339
+  Burst-2-000116        #100055     149.86500
+  Burst-5-000073        #100029     1.26338
+  Burst-7-000118        #100054     0.65250
+  Burst-10-000179       #100073     0.65250
+  Burst-1-000163        #100070     1.35720
+  Burst-6-000114        #100050     149.86498
+  Burst-8-000048        #100030     2035.50000
+  Burst-2-000113        #100048     2035.99999
+  Burst-8-000101        #100045     1.35736
+  Burst-4-000079        #100034     0.65247
+  Burst-2-000098        #100042     2035.49998
+  Burst-4-000060        #100021     2035.50001
+  Burst-6-000100        #100041     149.86500
+  Burst-10-000082       #100035     2035.50002
+  Burst-8-000081        #100039     149.86499
+  Burst-6-000080        #100038     1.26339
+  Burst-2-000194        #100079     149.86499
+  Burst-7-000191        #100076     1.35736
+  Burst-7-000083        #100033     0.65231
+  Burst-3-000086        #100032     1.08464
+  Burst-6-000062        #100018     149.84998
+  Burst-8-000065        #100022     2035.50001
+  Burst-9-000084        #100036     1.08452
+  Burst-7-000072        #100027     2036.00002
+  Burst-4-000071        #100031     1.08449
+  Burst-7-000034        #100011     1.35740
+  Burst-9-000067        #100025     1.35736
+  Burst-2-000078        #100028     2035.49999
+  Burst-1-000126        #100057     2036.00000
+  Burst-5-000110        #100047     0.65232
+  Burst-9-000008        #100002     2035.49998
+  Burst-3-000066        #100023     0.65250
+  Burst-10-000020       #100004     0.65229
+  Burst-10-000064       #100024     149.84999
+  Burst-6-000040        #100020     149.84999
+  Burst-1-000059        #100019     1.35740
+  Burst-1-000136        #100060     1.26322
+  Burst-7-000091        #100043     1.35738
+  Burst-6-000057        #100017     1.26322
+  Burst-1-000052        #100016     2036.00001
+  Burst-6-000050        #100013     149.84998
+  Burst-10-000090       #100037     1.08452
+  Burst-1-000041        #100012     0.65248
+  Burst-10-000036       #100009     0.65228
+  Burst-4-000117        #100049     0.65246
+  Burst-10-000068       #100026     1.26319
+  Burst-10-000049       #100014     1.35721
+  Burst-5-000097        #100040     0.65230
+  Burst-8-000199        #100081     1.08464
+  Burst-8-000196        #100078     1.26321
+  Burst-10-000017       #100005     149.86499
+  Burst-8-000181        #100075     0.65246
+  Burst-1-000035        #100010     0.65246
+  Burst-10-000120       #100052     149.86500
+  Burst-8-000193        #100080     2036.00002
+  Burst-10-000115       #100051     1.35722
+  Burst-2-000171        #100071     1.26340
+  Burst-5-000004        #100001     1.08466
+  Burst-7-000158        #100067     1.35739
+  Burst-6-000014        #100003     1.26322
+================================================================
+
+[2026-02-27 11:43:03.781] [INFO ] [Thread-0x200f42080] Disconnected from MT5 server. Demo complete.

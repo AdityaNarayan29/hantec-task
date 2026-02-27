@@ -110,9 +110,10 @@ TradeResult MockMTAPI::executeTrade(const TradeRequest& request) {
         return result;
     }
 
-    // Check volume step alignment
-    double remainder = std::fmod(request.volume, symbolInfo->second.volumeStep);
-    if (remainder > 1e-9) {
+    // Check volume step alignment (use rounding tolerance for floating-point)
+    double steps = request.volume / symbolInfo->second.volumeStep;
+    double rounded = std::round(steps);
+    if (std::fabs(steps - rounded) > 1e-6) {
         result.status = TradeStatus::INVALID_PARAMS;
         result.errorMessage = "Volume " + std::to_string(request.volume) +
                               " not aligned to step " +

@@ -18,6 +18,7 @@ struct TradeRequest {
     std::optional<double> stopLoss;
     std::optional<double> takeProfit;
     std::chrono::system_clock::time_point timestamp;
+    bool isTestBadRequest = false;  // Flagged when intentionally invalid for error testing
 
     // Generate unique request IDs
     static std::string generateRequestId(const std::string& clientId) {
@@ -33,6 +34,7 @@ struct TradeRequest {
 
     std::string toString() const {
         std::ostringstream oss;
+        if (isTestBadRequest) oss << "[INTENTIONAL-BAD-REQUEST] ";
         oss << "[" << requestId << "] "
             << clientId << " " << tradeTypeStr() << " "
             << symbol << " " << volume << " lots";

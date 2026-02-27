@@ -11,9 +11,9 @@ void ClientSimulator::run(DealProcessor& processor) {
     std::uniform_real_distribution<double> badChance(0.0, 1.0);
 
     for (int i = 0; i < config_.numRequests; ++i) {
-        // 15% chance of sending a bad request (for error handling demo)
+        // 10% chance of sending a bad request (to test error handling)
         TradeRequest request;
-        if (config_.sendBadRequests && badChance(rng_) < 0.15) {
+        if (config_.sendBadRequests && badChance(rng_) < 0.10) {
             request = generateBadRequest();
         } else {
             request = generateRequest();
@@ -74,6 +74,8 @@ TradeRequest ClientSimulator::generateBadRequest() {
     req.clientId  = config_.clientId;
     req.requestId = TradeRequest::generateRequestId(config_.clientId);
     req.timestamp = std::chrono::system_clock::now();
+
+    req.isTestBadRequest = true;
 
     switch (errorType(rng_)) {
         case 0:

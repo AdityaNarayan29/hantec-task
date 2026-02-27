@@ -37,13 +37,18 @@ int main(int argc, char* argv[]) {
     std::cout << "================================================================\n"
               << "  MT5 Deal Processor - Self-Contained Demo\n"
               << "  Hentec Trading - C++ Developer Task\n"
+              << "================================================================\n"
+              << "  NOTE: ~10% of requests are INTENTIONALLY invalid to\n"
+              << "  demonstrate error handling (tagged [INTENTIONAL-BAD-REQUEST]).\n"
+              << "  ~3% of MT API calls simulate connection failures for retry\n"
+              << "  testing. All other errors are real validation failures.\n"
               << "================================================================\n\n";
 
     // Initialize logger
     Logger logger("deal_processor.log", LogLevel::INFO);
 
-    // Initialize mock MT5 API (5% random failure rate for realistic testing)
-    MockMTAPI api(0.05);
+    // Initialize mock MT5 API (3% random failure rate for realistic testing)
+    MockMTAPI api(0.03);
 
     // Connect to "MT5 server" (simulated)
     logger.info("Connecting to MT5 server...");
